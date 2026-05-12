@@ -21,7 +21,7 @@
   --border-dark: rgba(255,255,255,0.08);
   --max-w: 1440px;
   --content-w: 1200px;
-  /* Nav logo: change height or swap asset in one place (path is relative to this CSS file) */
+  /* Brand wordmark (nav + footer): change height, asset, or source dimensions in one place */
   --nav-logo-height: 25px;
   --nav-logo-image: url('../assets/logo.png');
   /* Pixel size of --nav-logo-image; update if the file is replaced */
@@ -55,14 +55,16 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-.nav-logo {
+:is(.nav-logo, .footer-logo) {
   display: block;
-  flex-shrink: 0;
   height: var(--nav-logo-height);
   width: calc(var(--nav-logo-height) * var(--nav-logo-aspect-w) / var(--nav-logo-aspect-h));
   background: var(--nav-logo-image) no-repeat left center / contain;
-  text-decoration: none;
   overflow: hidden;
+}
+.nav-logo {
+  flex-shrink: 0;
+  text-decoration: none;
 }
 .nav-logo:focus-visible {
   outline: 2px solid var(--red);
@@ -651,7 +653,7 @@ body {
   grid-template-columns: 2.5fr repeat(5, 1fr);
   gap: 24px;
 }
-.footer-logo { color: #fff; font-size: 15px; font-weight: 800; letter-spacing: 0.1em; margin-bottom: 10px; }
+.footer-logo { margin-bottom: 10px; }
 .footer-tagline { font-size: 12px; color: rgba(255,255,255,0.28); line-height: 1.7; max-width: 200px; }
 .footer-col-title {
   font-size: 10px;

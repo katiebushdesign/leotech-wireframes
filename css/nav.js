@@ -295,7 +295,7 @@ const FOOTER_HTML = `
 </div>
 <footer class="footer">
   <div>
-    <div class="footer-logo">212 VISUAL</div>
+    <div class="footer-logo" role="img" aria-label="212 Visual"></div>
     <div class="footer-tagline">The extra degree in LED. Hardware, content, training, and care — built for everyone who builds.</div>
   </div>
   <div>
