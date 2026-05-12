@@ -3,7 +3,7 @@
 
 const NAV_HTML = `
 <nav class="navbar">
-  <a href="index.html" class="nav-logo">212 VISUAL</a>
+  <a href="index.html" class="nav-logo" aria-label="212 Visual — Home"></a>
   <div class="nav-links">
     <div class="nav-item">
       <button class="nav-btn" data-menu="solutions">Solutions

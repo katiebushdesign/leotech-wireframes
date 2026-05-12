@@ -21,6 +21,12 @@
   --border-dark: rgba(255,255,255,0.08);
   --max-w: 1440px;
   --content-w: 1200px;
+  /* Nav logo: change height or swap asset in one place (path is relative to this CSS file) */
+  --nav-logo-height: 25px;
+  --nav-logo-image: url('../assets/logo.png');
+  /* Pixel size of --nav-logo-image; update if the file is replaced */
+  --nav-logo-aspect-w: 936;
+  --nav-logo-aspect-h: 199;
 }
 
 body {
@@ -50,14 +56,19 @@ body {
   justify-content: space-between;
 }
 .nav-logo {
-  color: #fff;
-  font-weight: 800;
-  font-size: 16px;
-  letter-spacing: 0.12em;
-  text-decoration: none;
+  display: block;
   flex-shrink: 0;
+  height: var(--nav-logo-height);
+  width: calc(var(--nav-logo-height) * var(--nav-logo-aspect-w) / var(--nav-logo-aspect-h));
+  background: var(--nav-logo-image) no-repeat left center / contain;
+  text-decoration: none;
+  overflow: hidden;
 }
-.nav-logo span { color: var(--red); }
+.nav-logo:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
 .nav-links { display: flex; gap: 2px; }
 .nav-item { position: relative; }
 .nav-btn {
