@@ -129,8 +129,8 @@ body {
 .mega-backdrop.open { display: block; }
 .mega-panel {
   display: none;
-  position: absolute;
-  top: calc(100% + 1px);
+  position: fixed;
+  top: 60px;
   left: 50%;
   transform: translateX(-50%);
   width: var(--content-w);
