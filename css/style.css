@@ -5,9 +5,9 @@
   --black: #0a0a0a;
   --black-mid: #141414;
   --black-soft: #1c1c1c;
-  --red: #E8000F;
-  --red-light: rgba(232,0,15,0.10);
-  --red-border: rgba(232,0,15,0.30);
+  --red: #888888;
+  --red-light: rgba(136,136,136,0.10);
+  --red-border: rgba(136,136,136,0.30);
   --white: #ffffff;
   --grey-100: #F5F5F5;
   --grey-200: #EBEBEB;
