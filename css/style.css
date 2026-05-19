@@ -976,7 +976,15 @@ a.card:hover {
   display: flex;
   gap: 2px;
 }
-.tab-bar-inner { max-width: var(--content-w); margin: 0 auto; display: flex; }
+.tab-bar-inner {
+  max-width: var(--content-w);
+  margin: 0 auto;
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.tab-bar-inner::-webkit-scrollbar { display: none; }
 .tab {
   font-size: 13px;
   color: var(--text-light);
@@ -988,6 +996,25 @@ a.card:hover {
 }
 .tab:hover { color: var(--text-primary); }
 .tab.active { color: var(--red); border-bottom-color: var(--red); font-weight: 700; }
+.tab-bar.sticky {
+  position: sticky;
+  top: var(--vertical-nav-offset, 60px);
+  z-index: 99;
+  box-shadow: 0 1px 0 var(--border);
+}
+
+/* Verticals combined page: smooth anchors + offset for sticky site nav + tab bar */
+@media (prefers-reduced-motion: no-preference) {
+  html.page-verticals {
+    scroll-behavior: smooth;
+  }
+}
+html.page-verticals {
+  scroll-padding-top: calc(var(--vertical-nav-offset, 60px) + var(--vertical-tab-bar-height, 50px));
+}
+html.page-verticals .vertical-section {
+  scroll-margin-top: calc(var(--vertical-nav-offset, 60px) + var(--vertical-tab-bar-height, 50px));
+}
 
 /* ── TIER CARDS ── */
 .tier-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
