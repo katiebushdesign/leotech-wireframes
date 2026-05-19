@@ -862,6 +862,12 @@ a.card:hover {
   border-radius: 10px;
   overflow: hidden;
 }
+.proof-card > .img-placeholder {
+  border-radius: 0;
+  margin-bottom: 0;
+  border: none;
+  border-bottom: 1px dashed var(--grey-300);
+}
 .proof-img {
   height: 160px;
   background: var(--grey-200);
