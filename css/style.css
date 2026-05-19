@@ -388,6 +388,8 @@ body {
   line-height: 1.15;
   margin-bottom: 14px;
   letter-spacing: -0.02em;
+  max-width: 900px;
+  text-wrap: balance;
 }
 .sec-h2-white {
   font-size: 36px;
@@ -396,6 +398,8 @@ body {
   line-height: 1.15;
   margin-bottom: 14px;
   letter-spacing: -0.02em;
+  max-width: 900px;
+  text-wrap: balance;
 }
 .sec-h2 em, .sec-h2-white em { color: var(--red); font-style: normal; }
 .sec-sub {
