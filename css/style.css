@@ -999,7 +999,7 @@ a.card:hover {
 .tab-bar.sticky {
   position: sticky;
   top: var(--vertical-nav-offset, 60px);
-  z-index: 99;
+  z-index: 90;
   box-shadow: 0 1px 0 var(--border);
 }
 
