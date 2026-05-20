@@ -1,0 +1,11 @@
+# Map copy doc page table titles (row 0) → HTML path at repo root
+
+pages:
+  - title: Homepage
+    path: index.html
+
+# Example inner page:
+#  - title: About
+#    path: about.html
+
+nav_tables: []

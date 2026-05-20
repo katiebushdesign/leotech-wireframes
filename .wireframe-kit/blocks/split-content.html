@@ -1,0 +1,26 @@
+<!-- block: split-content -->
+<section class="section-white pad-xl">
+  <div class="inner grid-2-1" style="gap:60px;">
+    <div>
+      {{#if primary.eyebrow}}<div class="sec-eyebrow">{{primary.eyebrow}}</div>{{/if}}
+      <h2 class="sec-h2">{{primary.heading}}</h2>
+      <div style="margin-top:32px;">
+        <!-- primary: wireframe form placeholders or HTML -->
+        {{primary.content}}
+      </div>
+    </div>
+    {{#if sidebar}}
+    <div>
+      {{#if sidebar.eyebrow}}<div class="sec-eyebrow">{{sidebar.eyebrow}}</div>{{/if}}
+      <h2 class="sec-h2" style="font-size:22px;">{{sidebar.heading}}</h2>
+      {{#if sidebar.body}}<p style="font-size:14px;color:var(--text-mid);line-height:1.7;margin-bottom:24px;">{{sidebar.body}}</p>{{/if}}
+      {{#if sidebar.cta}}<a href="{{sidebar.cta.href}}" class="btn-outline-dark" style="margin-bottom:32px;display:inline-flex;">{{sidebar.cta.label}}</a>{{/if}}
+      {{#if sidebar.secondary}}
+      <div style="margin-top:32px;padding-top:32px;border-top:1px solid var(--border);">
+        {{sidebar.secondary}}
+      </div>
+      {{/if}}
+    </div>
+    {{/if}}
+  </div>
+</section>

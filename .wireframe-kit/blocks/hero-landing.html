@@ -1,0 +1,22 @@
+<!-- block: hero-landing -->
+<section class="hero">
+  <div class="hero-inner">
+    <h1 class="hero-h1">{{headline}}</h1>
+    {{#if lead}}<p class="hero-lead">{{lead}}</p>{{/if}}
+    {{#if body}}<p class="hero-sub">{{body}}</p>{{/if}}
+    {{#if ctas}}
+    <div class="hero-actions">
+      <!-- repeat:cta -->
+      <a href="{{href}}" class="{{btn_class}}">{{label}}</a>
+      <!-- /repeat:cta -->
+    </div>
+    {{/if}}
+    {{#if stats}}
+    <div class="hero-proof">
+      <!-- repeat:stat -->
+      <div><div class="hero-stat-num">{{value}}</div><div class="hero-stat-label">{{label}}</div></div>
+      <!-- /repeat:stat -->
+    </div>
+    {{/if}}
+  </div>
+</section>

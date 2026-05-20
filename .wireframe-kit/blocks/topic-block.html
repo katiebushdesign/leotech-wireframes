@@ -1,0 +1,15 @@
+<!-- block: topic-block — repeat for stacked hub sections (alternate tone per instance) -->
+<section class="section-{{tone}} pad-xl{{#if anchor_id}} vertical-section{{/if}}"{{#if anchor_id}} id="{{anchor_id}}"{{/if}}>
+  <div class="inner">
+    <h2 class="sec-h2">{{heading}}</h2>
+    {{#if sub}}<p class="sec-sub" style="margin-top:16px;">{{sub}}</p>{{/if}}
+    <div class="grid-3" style="margin-top:40px;">
+      <!-- repeat:cards -->
+      <div class="card-grey">
+        <div class="card-title">{{title}}</div>
+        <div class="card-desc">{{body}}</div>
+      </div>
+      <!-- /repeat:cards -->
+    </div>
+  </div>
+</section>

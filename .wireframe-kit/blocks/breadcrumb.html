@@ -1,0 +1,9 @@
+<!-- block: breadcrumb — prefix hrefs with ../ when page is one level deep -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <!-- repeat:crumb -->
+    <a href="{{href}}" class="bc-item">{{label}}</a><span class="bc-sep">›</span>
+    <!-- /repeat:crumb -->
+    <span class="bc-active">{{current}}</span>
+  </div>
+</div>

@@ -1,0 +1,188 @@
+{
+  "version": 1,
+  "placeholder_syntax": "{{field_name}}",
+  "repeat_syntax": "<!-- repeat:name --> ... <!-- /repeat:name -->",
+  "stylesheet": "css/style.css",
+  "resolved_classes": {
+    "tone": ["section-white", "section-grey"],
+    "columns": ["grid-3", "grid-4"],
+    "card_class": ["card", "card-grey"],
+    "btn_class": ["btn-red", "btn-outline-white", "btn-outline-dark", "btn-white"]
+  },
+  "validate": "make validate-blocks",
+  "blocks": [
+    {
+      "id": "hero-landing",
+      "file": "hero-landing.html",
+      "description": "Homepage hero: headline, lead, body, CTAs, optional stat row",
+      "copy_labels": ["hero", "hero section with big statement"],
+      "fields": {
+        "headline": { "required": true },
+        "lead": { "required": false },
+        "body": { "required": false },
+        "ctas": { "type": "cta[]", "required": false },
+        "stats": { "type": "stat[]", "required": false, "item": ["value", "label"] }
+      }
+    },
+    {
+      "id": "hero-page",
+      "file": "hero-page.html",
+      "description": "Inner page hero: H1, subcopy, optional CTAs",
+      "copy_labels": ["hero", "overview"],
+      "fields": {
+        "headline": { "required": true },
+        "body": { "required": false },
+        "ctas": { "type": "cta[]", "required": false }
+      }
+    },
+    {
+      "id": "breadcrumb",
+      "file": "breadcrumb.html",
+      "description": "Breadcrumb trail (generated from site-map, not copy doc body)",
+      "fields": {
+        "crumbs": { "type": "crumb[]", "item": ["label", "href"], "required": true }
+      }
+    },
+    {
+      "id": "section-qa",
+      "file": "section-qa.html",
+      "description": "Dark band: heading, sub, Q&A cards",
+      "copy_labels": ["key questions"],
+      "fields": {
+        "heading": { "required": true },
+        "sub": { "required": false },
+        "items": { "type": "qa[]", "min": 1, "item": ["question", "answer"] }
+      }
+    },
+    {
+      "id": "section-header",
+      "file": "section-header.html",
+      "description": "Section intro only: optional eyebrow, H2, sub (no cards)",
+      "fields": {
+        "tone": { "enum": ["white", "grey"], "default": "white" },
+        "eyebrow": { "required": false },
+        "heading": { "required": true },
+        "sub": { "required": false }
+      }
+    },
+    {
+      "id": "cards-grid",
+      "file": "cards-grid.html",
+      "description": "H2 + card grid (plain cards, optional card links)",
+      "copy_labels": ["how we work", "services", "turnkey", "hardware", "why us", "partner"],
+      "fields": {
+        "tone": { "enum": ["white", "grey"], "default": "white" },
+        "heading": { "required": true },
+        "sub": { "required": false },
+        "columns": { "enum": [3, 4], "default": 4 },
+        "card_style": { "enum": ["plain", "grey"], "default": "plain" },
+        "items": { "type": "card[]", "item": ["title", "body", "link_label", "link_href"] },
+        "footer_link": { "type": "cta", "required": false }
+      }
+    },
+    {
+      "id": "cards-grid-media",
+      "file": "cards-grid-media.html",
+      "description": "H2 + grid of image-placeholder cards",
+      "copy_labels": ["what we build", "what we provide"],
+      "fields": {
+        "tone": { "enum": ["white", "grey"], "default": "white" },
+        "heading": { "required": true },
+        "columns": { "enum": [3, 4], "default": 3 },
+        "items": { "type": "card[]", "item": ["title", "body"] }
+      }
+    },
+    {
+      "id": "cards-grid-linked",
+      "file": "cards-grid-linked.html",
+      "description": "H2 + sub + linked tile cards (arrow)",
+      "copy_labels": ["who we serve"],
+      "fields": {
+        "tone": { "enum": ["white", "grey"], "default": "white" },
+        "heading": { "required": true },
+        "sub": { "required": false },
+        "columns": { "enum": [3, 4], "default": 3 },
+        "items": { "type": "linked_card[]", "item": ["title", "body", "href"] },
+        "inline_cta": { "type": "inline_cta", "required": false }
+      }
+    },
+    {
+      "id": "inline-cta",
+      "file": "inline-cta.html",
+      "description": "In-section CTA row (title, desc, button) — often after a card grid",
+      "fields": {
+        "title": { "required": true },
+        "body": { "required": false },
+        "cta": { "type": "cta", "required": true }
+      }
+    },
+    {
+      "id": "topic-block",
+      "file": "topic-block.html",
+      "description": "Stackable topic: H2, sub, 3-up grey cards (hub/long pages)",
+      "copy_labels": ["verticals", "corporate", "hospitality"],
+      "fields": {
+        "tone": { "enum": ["white", "grey"], "default": "white" },
+        "anchor_id": { "required": false },
+        "heading": { "required": true },
+        "sub": { "required": false },
+        "items": { "type": "card[]", "min": 1, "item": ["title", "body"] }
+      }
+    },
+    {
+      "id": "feature-band",
+      "file": "feature-band.html",
+      "description": "Full-width dark feature: heading, sub, tier/list items, CTAs",
+      "copy_labels": ["partner program", "portal"],
+      "fields": {
+        "heading": { "required": true },
+        "sub": { "required": false },
+        "items": { "type": "feature_item[]", "item": ["title", "body"] },
+        "ctas": { "type": "cta[]", "required": false }
+      }
+    },
+    {
+      "id": "tiers",
+      "file": "tiers.html",
+      "description": "Pricing / program tier cards",
+      "copy_labels": ["partner tiers", "tiers"],
+      "fields": {
+        "heading": { "required": true },
+        "tiers": {
+          "type": "tier[]",
+          "item": ["name", "desc", "features[]", "badge", "featured", "cta"]
+        }
+      }
+    },
+    {
+      "id": "prose-band",
+      "file": "prose-band.html",
+      "description": "Dark centered prose block (H2 + paragraphs)",
+      "fields": {
+        "heading": { "required": true },
+        "body": { "required": true }
+      }
+    },
+    {
+      "id": "split-content",
+      "file": "split-content.html",
+      "description": "Two columns: primary (form or content) + sidebar",
+      "copy_labels": ["contact", "get in touch"],
+      "fields": {
+        "primary": { "type": "column", "item": ["eyebrow", "heading", "form_or_html"] },
+        "sidebar": { "type": "column", "required": false }
+      }
+    },
+    {
+      "id": "cta-band",
+      "file": "cta-band.html",
+      "description": "Pre-footer CTA strip",
+      "copy_labels": ["cta", "cta band", "footer"],
+      "fields": {
+        "title": { "required": true },
+        "sub": { "required": false },
+        "cta": { "type": "cta", "required": true }
+      }
+    }
+  ]
+}

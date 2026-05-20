@@ -1,0 +1,20 @@
+<!-- block: tiers -->
+<section class="section-grey pad-xl">
+  <div class="inner">
+    <h2 class="sec-h2">{{heading}}</h2>
+    <div class="tier-cards" style="margin-top:40px;">
+      <!-- repeat:tiers -->
+      <div class="tier-card{{#if featured}} featured{{/if}}"{{#if anchor_id}} id="{{anchor_id}}"{{/if}}>
+        {{#if badge}}<div class="tier-badge">{{badge}}</div>{{/if}}
+        <div class="tier-name">{{name}}</div>
+        <div class="tier-desc">{{desc}}</div>
+        <div class="tier-divider"></div>
+        <!-- repeat:features -->
+        <div class="tier-feature"><div class="tier-feature-dot"></div>{{text}}</div>
+        <!-- /repeat:features -->
+        <a href="{{cta.href}}" class="tier-btn{{#if cta_primary}} red{{/if}}">{{cta.label}}</a>
+      </div>
+      <!-- /repeat:tiers -->
+    </div>
+  </div>
+</section>

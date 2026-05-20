@@ -1,1 +1,12 @@
 .DS_Store
+
+.wireframe-kit/content/source/*.docx
+.wireframe-kit/content/source/*.doc
+
+.cursor/skills
+.claude/skills
+.agents/skills
+
+# Generated copy JSON (optional — remove comments to track in git)
+.wireframe-kit/content/pages/*.json
+.wireframe-kit/content/nav/*.json

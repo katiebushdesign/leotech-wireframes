@@ -1,0 +1,12 @@
+# Client-specific wireframe config (edit per project)
+
+client_name: Example Client
+project_name: Website wireframes
+
+copy_doc_url: https://docs.google.com/document/d/YOUR_DOC_ID/edit
+
+copy_docx_path: .wireframe-kit/content/source/copy.docx
+
+preview_base_url: ""
+
+marker_project_id: ""

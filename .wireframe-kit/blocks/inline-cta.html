@@ -1,0 +1,8 @@
+<!-- block: inline-cta — place inside section .inner after other content, or wrap in section -->
+<div class="catchall">
+  <div>
+    <div class="catchall-title">{{title}}</div>
+    {{#if body}}<div class="catchall-desc">{{body}}</div>{{/if}}
+  </div>
+  <a href="{{cta.href}}" class="btn-red">{{cta.label}}</a>
+</div>

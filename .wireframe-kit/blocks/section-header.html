@@ -1,0 +1,13 @@
+<!-- block: section-header — use inside .inner before a card grid, or standalone -->
+<!-- tone: section-white | section-grey -->
+<section class="section-{{tone}} pad-xl">
+  <div class="inner">
+    <div class="sec-header-row">
+      <div>
+        {{#if eyebrow}}<div class="sec-eyebrow">{{eyebrow}}</div>{{/if}}
+        <h2 class="sec-h2">{{heading}}</h2>
+        {{#if sub}}<p class="sec-sub" style="margin-top:16px;max-width:720px;">{{sub}}</p>{{/if}}
+      </div>
+    </div>
+  </div>
+</section>

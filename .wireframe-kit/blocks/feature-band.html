@@ -1,0 +1,26 @@
+<!-- block: feature-band -->
+<section class="portal-wrap">
+  <div class="portal-inner">
+    <div class="portal-left">
+      <h2 class="sec-h2-white">{{heading}}</h2>
+      {{#if sub}}<p class="sec-sub-white" style="margin-bottom:28px;">{{sub}}</p>{{/if}}
+      {{#if items}}
+      <div class="portal-tiers">
+        <!-- repeat:items -->
+        <div class="portal-tier{{#if featured}} featured{{/if}}">
+          <p class="portal-tier-name">{{title}}</p>
+          <p class="portal-tier-desc">{{body}}</p>
+        </div>
+        <!-- /repeat:items -->
+      </div>
+      {{/if}}
+      {{#if ctas}}
+      <div class="portal-ctas">
+        <!-- repeat:cta -->
+        <a href="{{href}}" class="{{btn_class}}">{{label}}</a>
+        <!-- /repeat:cta -->
+      </div>
+      {{/if}}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,28 @@
+<!-- block: cards-grid -->
+<!-- tone: white | grey · columns: 3 | 4 · card_style: plain (card) | grey (card-grey) -->
+<section class="section-{{tone}} pad-xl">
+  <div class="inner">
+    {{#if sub}}
+    <div style="margin-bottom:40px;">
+      <h2 class="sec-h2">{{heading}}</h2>
+      <p class="sec-sub" style="margin-top:16px;max-width:720px;">{{sub}}</p>
+    </div>
+    {{else}}
+    <h2 class="sec-h2">{{heading}}</h2>
+    {{/if}}
+    <div class="grid-{{columns}}" style="margin-top:40px;">
+      <!-- repeat:cards -->
+      <div class="{{card_class}}">
+        <div class="card-title">{{title}}</div>
+        <div class="card-desc">{{body}}</div>
+        {{#if link_href}}<a href="{{link_href}}" class="card-link">{{link_label}}</a>{{/if}}
+      </div>
+      <!-- /repeat:cards -->
+    </div>
+    {{#if footer_link}}
+    <div style="margin-top:36px;">
+      <a href="{{footer_link.href}}" class="btn-outline-dark">{{footer_link.label}}</a>
+    </div>
+    {{/if}}
+  </div>
+</section>

@@ -1,0 +1,13 @@
+# Copy to client.yaml and edit per project
+
+client_name: Client Name
+project_name: Website wireframes
+
+copy_doc_url: https://docs.google.com/document/d/YOUR_DOC_ID/edit
+
+copy_docx_path: .wireframe-kit/content/source/copy.docx
+
+preview_base_url: https://your-org.github.io/your-repo/
+
+# Optional: Marker.io project id (leave empty to omit)
+marker_project_id: ""

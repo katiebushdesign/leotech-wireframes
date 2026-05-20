@@ -1,0 +1,14 @@
+<!-- block: hero-page -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <h1 class="page-hero-h1">{{headline}}</h1>
+    {{#if body}}<p class="page-hero-sub">{{body}}</p>{{/if}}
+    {{#if ctas}}
+    <div class="page-hero-actions">
+      <!-- repeat:cta -->
+      <a href="{{href}}" class="{{btn_class}}">{{label}}</a>
+      <!-- /repeat:cta -->
+    </div>
+    {{/if}}
+  </div>
+</section>

@@ -1,0 +1,27 @@
+<!-- block: cards-grid-linked -->
+<section class="section-{{tone}} pad-xl">
+  <div class="inner">
+    <div style="margin-bottom:40px;">
+      <h2 class="sec-h2">{{heading}}</h2>
+      {{#if sub}}<p class="sec-sub" style="margin-top:16px;max-width:720px;">{{sub}}</p>{{/if}}
+    </div>
+    <div class="grid-{{columns}}" style="margin-bottom:16px;">
+      <!-- repeat:cards -->
+      <a href="{{href}}" class="serve-card">
+        <div class="serve-title">{{title}}</div>
+        <div class="serve-desc">{{body}}</div>
+        <div class="serve-link">→</div>
+      </a>
+      <!-- /repeat:cards -->
+    </div>
+    {{#if inline_cta}}
+    <div class="catchall">
+      <div>
+        <div class="catchall-title">{{inline_cta.title}}</div>
+        <div class="catchall-desc">{{inline_cta.body}}</div>
+      </div>
+      <a href="{{inline_cta.href}}" class="btn-red">{{inline_cta.label}}</a>
+    </div>
+    {{/if}}
+  </div>
+</section>

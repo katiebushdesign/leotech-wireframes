@@ -1,0 +1,15 @@
+<!-- block: section-qa -->
+<section class="section-dark-mid pad-lg">
+  <div class="inner">
+    <h2 class="sec-h2-white" style="margin-bottom:16px;">{{heading}}</h2>
+    {{#if sub}}<p class="sec-sub-white" style="max-width:720px;margin-bottom:40px;">{{sub}}</p>{{/if}}
+    <div class="ch-grid">
+      <!-- repeat:qa -->
+      <div class="ch-card">
+        <div class="ch-q"><span class="ch-icon">→</span>{{question}}</div>
+        <div class="ch-a">{{answer}}</div>
+      </div>
+      <!-- /repeat:qa -->
+    </div>
+  </div>
+</section>
