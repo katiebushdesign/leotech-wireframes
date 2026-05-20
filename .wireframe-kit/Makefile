@@ -4,7 +4,7 @@ KIT_ROOT := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 REPO_ROOT := $(abspath $(KIT_ROOT)/..)
 DOCX ?= $(KIT_ROOT)content/source/copy.docx
 
-.PHONY: help parse-copy sync link-skills validate-blocks setup-github
+.PHONY: help parse-copy sync link-skills validate-blocks setup-github clean-content
 
 help:
 	@echo ".wireframe-kit targets:"
@@ -13,6 +13,7 @@ help:
 	@echo "  make link-skills       — symlink skills for Cursor / Claude / OpenClaw"
 	@echo "  make validate-blocks   — block classes exist in css/style.css"
 	@echo "  make setup-github      — create katiebushdesign/{SLUG}-wireframes + Pages (SLUG= client name, e.g. 212-visual)"
+	@echo "  make clean-content     — remove generated pages/nav JSON and source docx"
 
 parse-copy:
 	python3 $(KIT_ROOT)scripts/parse-copy-docx.py $(DOCX)
@@ -30,3 +31,8 @@ validate-blocks:
 setup-github:
 	@test -n "$(SLUG)" || (echo "Usage: make setup-github SLUG=clientname [NAME='Client Name'] [YES=1]" >&2; exit 1)
 	$(KIT_ROOT)scripts/setup-github-repo.sh --slug "$(SLUG)" $(if $(NAME),--name "$(NAME)",) $(if $(YES),--yes,)
+
+clean-content:
+	rm -f $(KIT_ROOT)content/pages/*.json $(KIT_ROOT)content/nav/*.json
+	rm -f $(KIT_ROOT)content/source/*.docx $(KIT_ROOT)content/source/*.doc
+	@echo "Cleared generated content under .wireframe-kit/content/"

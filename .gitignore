@@ -7,6 +7,6 @@
 .claude/skills
 .agents/skills
 
-# Generated copy JSON (optional — remove comments to track in git)
+# Generated copy JSON (optional — comment out to track in git)
 .wireframe-kit/content/pages/*.json
 .wireframe-kit/content/nav/*.json
