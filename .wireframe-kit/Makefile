@@ -4,7 +4,9 @@ KIT_ROOT := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 REPO_ROOT := $(abspath $(KIT_ROOT)/..)
 DOCX ?= $(KIT_ROOT)content/source/copy.docx
 
-.PHONY: help parse-copy sync link-skills validate-blocks setup-github clean-content
+PORT ?= 8765
+
+.PHONY: help parse-copy sync link-skills validate-blocks setup-github clean-content serve serve-stop serve-status
 
 help:
 	@echo ".wireframe-kit targets:"
@@ -14,6 +16,8 @@ help:
 	@echo "  make validate-blocks   — block classes exist in css/style.css"
 	@echo "  make setup-github      — create katiebushdesign/{SLUG}-wireframes + Pages (SLUG= client name, e.g. 212-visual)"
 	@echo "  make clean-content     — remove generated pages/nav JSON and source docx"
+	@echo "  make serve             — local preview at http://localhost:$(PORT)/ (background)"
+	@echo "  make serve-stop        — stop local preview server"
 
 parse-copy:
 	python3 $(KIT_ROOT)scripts/parse-copy-docx.py $(DOCX)
@@ -36,3 +40,12 @@ clean-content:
 	rm -f $(KIT_ROOT)content/pages/*.json $(KIT_ROOT)content/nav/*.json
 	rm -f $(KIT_ROOT)content/source/*.docx $(KIT_ROOT)content/source/*.doc
 	@echo "Cleared generated content under .wireframe-kit/content/"
+
+serve:
+	PORT=$(PORT) $(KIT_ROOT)scripts/serve-local.sh start
+
+serve-stop:
+	$(KIT_ROOT)scripts/serve-local.sh stop
+
+serve-status:
+	PORT=$(PORT) $(KIT_ROOT)scripts/serve-local.sh status

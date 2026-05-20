@@ -1,4 +1,4 @@
-/* ── 212VISUAL DESIGN SYSTEM ── */
+/* ── WIREFRAMES DESIGN SYSTEM ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
@@ -21,12 +21,11 @@
   --border-dark: rgba(255,255,255,0.08);
   --max-w: 1440px;
   --content-w: 1200px;
-  /* Brand wordmark (nav + footer): change height, asset, or source dimensions in one place */
-  --nav-logo-height: 25px;
-  --nav-logo-image: url('../assets/logo.png');
-  /* Pixel size of --nav-logo-image; update if the file is replaced */
-  --nav-logo-aspect-w: 936;
-  --nav-logo-aspect-h: 199;
+  /* Brand wordmark (nav + footer): generic wireframe placeholder */
+  --nav-logo-height: 28px;
+  --nav-logo-image: url('../assets/logo.svg');
+  --nav-logo-aspect-w: 120;
+  --nav-logo-aspect-h: 32;
 }
 
 body {

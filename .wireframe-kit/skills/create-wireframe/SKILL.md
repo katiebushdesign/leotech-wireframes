@@ -37,7 +37,7 @@ Derive **preview URL** (do not ask separately unless overriding):
 
 `https://katiebushdesign.github.io/{clientname}-wireframes/`
 
-**Stop and confirm** plan: `config` → `github` (if new) → `parse` → `build` → `validate` → `push`.
+**Stop and confirm** plan: `config` → `github` (if new) → `parse` → `build` → `validate` → `make serve` → `push`.
 
 Do not `git push` or create the GitHub repo until the user approves.
 
@@ -117,7 +117,10 @@ Rules:
 ```bash
 make sync          # only if nav/footer IA changed and shell supports it
 make validate-blocks
+make serve         # start local preview (background, default http://localhost:8765/)
 ```
+
+**Always run `make serve` at the end of onboard** (after HTML exists — starter `index.html` is enough). Report the printed local URL to the user. Use `PORT=8080 make serve` if 8765 is taken. Stop with `make serve-stop`.
 
 ---
 
@@ -127,7 +130,8 @@ Report to the user:
 
 - Pages created/updated (paths)
 - Section → block map per page
-- Scripts run (`parse-copy`, `sync`, `validate-blocks`)
+- Scripts run (`parse-copy`, `sync`, `validate-blocks`, `serve`)
+- **Local preview URL** from `make serve` (e.g. `http://localhost:8765/index.html`)
 - Copy doc / site-map gaps or notes you could not auto-apply
 - GitHub repo URL and Pages preview (`preview_base_url` + paths)
 - Whether initial push / Pages setup ran

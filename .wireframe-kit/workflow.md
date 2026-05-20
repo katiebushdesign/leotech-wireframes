@@ -51,6 +51,7 @@ For each page JSON:
 3. Apply team-note rules ([notes-and-cues.md](./notes-and-cues.md)).
 4. If page exists: **patch** copy in place; if greenfield: assemble from `blocks/`.
 5. Run `make sync` if nav or IA changed.
+6. Run `make serve` — local preview at `http://localhost:8765/` (onboard does this automatically).
 
 ## Phase 5 — Review & deploy
 

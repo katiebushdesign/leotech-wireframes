@@ -10,7 +10,7 @@ Kit docs: [README.md](./README.md) · [workflow.md](./workflow.md) · [copy-doc-
 
 If the user wants to **start or onboard** a wireframe project (no prior context), load skill **`create-wireframe`** first. It defines intake questions and the execution order below. Do not skip intake.
 
-**Order:** `make link-skills` → config (`client.yaml`, `site-map.yaml`) → GitHub repo + Pages ([github-setup.md](./github-setup.md), `make setup-github`) → `make parse-copy` (if docx) → build HTML → `make validate-blocks` → `make sync` (if applicable) → push.
+**Order:** `make link-skills` → config (`client.yaml`, `site-map.yaml`) → GitHub repo + Pages ([github-setup.md](./github-setup.md), `make setup-github`) → `make parse-copy` (if docx) → build HTML → `make validate-blocks` → `make sync` (if applicable) → **`make serve`** → push.
 
 **KBD GitHub:** `katiebushdesign/{clientname}-wireframes` → `https://katiebushdesign.github.io/{clientname}-wireframes/`
 
@@ -35,6 +35,7 @@ make parse-copy    # .wireframe-kit/content/pages/*.json
 make sync          # nav + footer on site HTML
 make link-skills   # symlink skills for Cursor / Claude / OpenClaw
 make setup-github  # SLUG=clientname — katiebushdesign repo + Pages (see github-setup.md)
+make serve         # local preview http://localhost:8765/ (background; make serve-stop)
 ```
 
 ---

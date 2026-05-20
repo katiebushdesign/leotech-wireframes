@@ -11,6 +11,7 @@ make link-skills       # once after clone
 make parse-copy        # copy doc → JSON
 make sync              # nav + footer (when multi-page shell exists)
 make validate-blocks   # block classes in css/style.css
+make serve             # local preview (onboard runs this automatically)
 make setup-github      # SLUG=212-visual — katiebushdesign/{clientname}-wireframes + Pages
 ```
 

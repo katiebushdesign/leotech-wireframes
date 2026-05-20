@@ -10,3 +10,4 @@
 # Generated copy JSON (optional — comment out to track in git)
 .wireframe-kit/content/pages/*.json
 .wireframe-kit/content/nav/*.json
+.wireframe-kit/.preview-server.pid
