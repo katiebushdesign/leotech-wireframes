@@ -1,33 +1,46 @@
-# HTML wireframe starter
+# Wireframe kit
 
-A minimal repo for **client wireframe previews** (GitHub Pages or static host). Copy workflow, blocks, and agent tooling live in [`.wireframe-kit/`](.wireframe-kit/).
+Build client wireframe previews from a Google Docs copy doc. **You don’t clone or run commands** — your agent does.
 
-## Quick start
+---
 
-```bash
-make link-skills      # once — Cursor / Claude / OpenClaw skill symlinks
-cp .wireframe-kit/config/client.yaml.example .wireframe-kit/config/client.yaml
-# Edit client.yaml + site-map.yaml, add pages under repo root
-make validate-blocks  # block classes exist in css/style.css
+## Get started
+
+Paste this into Cursor, Claude Code, or any coding agent (swap in your client and copy doc):
+
+```
+Create a new wireframe using https://github.com/katiebushdesign/wireframe-kit for client 212 Visual using this copy doc: https://docs.google.com/document/d/YOUR_DOC_ID/edit
 ```
 
-## Layout
+The agent sets up the project, builds the pages, and gives you a local preview link (usually http://localhost:8765/).
 
-| Path | Purpose |
-|------|---------|
-| `.wireframe-kit/` | Kit: blocks, scripts, skills, copy pipeline, docs |
-| `css/style.css` | Default wireframe theme (all block classes) |
-| `index.html` | Starter shell — replace with your pages |
-| `AGENTS.md` / `CLAUDE.md` | Agent entry points |
+---
 
-## New client from this branch
+## When it’s ready for the client
 
-1. Use this branch as template (GitHub “Use this template” or clone `-b wireframe-kit-starter`).
-2. Fill `.wireframe-kit/config/client.yaml` and `site-map.yaml`.
-3. Add HTML pages at repo root; assemble sections from `.wireframe-kit/blocks/`.
-4. Export copy doc → `make parse-copy` → agent applies JSON to pages.
-5. `make setup-github SLUG=212-visual` — repo `katiebushdesign/{clientname}-wireframes` + GitHub Pages on `main`.
+Ask the agent:
 
-## Docs
+```
+Set up GitHub Pages for this client (slug: 212-visual) and push when I approve.
+```
 
-See [`.wireframe-kit/README.md`](.wireframe-kit/README.md) and [`.wireframe-kit/AI-INSTRUCTIONS.md`](.wireframe-kit/AI-INSTRUCTIONS.md).
+Preview URL: `https://katiebushdesign.github.io/212-visual-wireframes/`
+
+---
+
+## Copy updates
+
+Edit the Google Doc, then:
+
+```
+Apply the latest copy doc to the wireframes.
+```
+
+---
+
+## More detail
+
+- [Copy doc format](.wireframe-kit/copy-doc-format.md)
+- [Kit docs](.wireframe-kit/README.md) · [Agent instructions](.wireframe-kit/AI-INSTRUCTIONS.md)
+
+**Optional (terminal):** `make serve` for local preview · `make link-skills` after cloning yourself

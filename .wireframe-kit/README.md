@@ -38,13 +38,11 @@ make sync          # nav + footer across site HTML
 
 ## New client
 
-**Agents:** say *create wireframes* or load `/create-wireframe` — the skill walks through intake then runs the pipeline.
+**Humans:** see [repo root README](../README.md) — one prompt with the kit repo URL, client name, and copy doc link.
 
-1. Copy the entire `.wireframe-kit/` folder into the new repo.
-2. Copy root stubs: `AGENTS.md`, `CLAUDE.md`, `Makefile`, `.github/copilot-instructions.md`.
-3. Run `make link-skills`.
-4. Fill `.wireframe-kit/config/client.yaml` and `site-map.yaml`.
-5. Add site HTML at repo root.
+**Agents:** load `/create-wireframe` — intake, then config → parse → build → `make validate-blocks` → `make serve`.
+
+Legacy manual bootstrap (without the full repo): copy `.wireframe-kit/` + root stubs (`AGENTS.md`, `Makefile`, …), `make link-skills`, fill `config/`, add HTML at repo root.
 
 ## Agents
 
