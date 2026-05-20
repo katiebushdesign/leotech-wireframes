@@ -6,6 +6,16 @@ Kit docs: [README.md](./README.md) · [workflow.md](./workflow.md) · [copy-doc-
 
 ---
 
+## New session: create wireframe
+
+If the user wants to **start or onboard** a wireframe project (no prior context), load skill **`create-wireframe`** first. It defines intake questions and the execution order below. Do not skip intake.
+
+**Order:** `make link-skills` → config (`client.yaml`, `site-map.yaml`) → GitHub repo + Pages ([github-setup.md](./github-setup.md), `make setup-github`) → `make parse-copy` (if docx) → build HTML → `make validate-blocks` → `make sync` (if applicable) → push.
+
+**KBD GitHub:** `katiebushdesign/{clientname}-wireframes` → `https://katiebushdesign.github.io/{clientname}-wireframes/`
+
+---
+
 ## Repository role
 
 HTML marketing wireframes at **repo root**; this kit directory holds workflow, config, and generated JSON.
@@ -24,6 +34,7 @@ Copy: **Google Doc** (one table per page). Layout: HTML + optional `.wireframe-k
 make parse-copy    # .wireframe-kit/content/pages/*.json
 make sync          # nav + footer on site HTML
 make link-skills   # symlink skills for Cursor / Claude / OpenClaw
+make setup-github  # SLUG=clientname — katiebushdesign repo + Pages (see github-setup.md)
 ```
 
 ---
@@ -85,7 +96,7 @@ See `.wireframe-kit/skills/wireframe-from-copy-doc/reference.md`.
 | Type | Location |
 |------|----------|
 | Procedures | `.wireframe-kit/AI-INSTRUCTIONS.md` |
-| Skills | `.wireframe-kit/skills/*/SKILL.md` |
+| Skills | `.wireframe-kit/skills/*/SKILL.md` (start: `create-wireframe`) |
 | Stubs | repo root `AGENTS.md`, `CLAUDE.md` |
 
 [agent-integrations.md](./agent-integrations.md)

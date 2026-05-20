@@ -14,13 +14,18 @@ flowchart LR
   H --> I[Client review + Marker.io]
 ```
 
+## Phase 0 — Agent onboard (optional)
+
+Load skill **`create-wireframe`** — intake questions, then Phases 1–4 in order.
+
 ## Phase 1 — Setup (once per client)
 
 1. Create repo from static HTML wireframe base + this kit.
-2. Fill `.wireframe-kit/config/client.yaml` (copy doc URL, GitHub Pages base URL).
-3. Build `.wireframe-kit/config/site-map.yaml`: map **copy doc table titles** → paths at repo root (`solutions/high-impact.html`).
-4. Extract recurring sections into `.wireframe-kit/blocks/*.html` with `{{placeholders}}`.
-5. Document any client-only blocks in `block-mapping.md`.
+2. Fill `.wireframe-kit/config/client.yaml` (copy doc URL, `github_org` / `github_repo` / `preview_base_url`).
+3. **GitHub:** `make setup-github SLUG=212-visual` — creates `katiebushdesign/{clientname}-wireframes` and enables Pages ([github-setup.md](./github-setup.md)).
+4. Build `.wireframe-kit/config/site-map.yaml`: map **copy doc table titles** → paths at repo root (`solutions/high-impact.html`).
+5. Extract recurring sections into `.wireframe-kit/blocks/*.html` with `{{placeholders}}`.
+6. Document any client-only blocks in `block-mapping.md`.
 
 ## Phase 2 — Copy doc (writers + strategists)
 
@@ -37,7 +42,7 @@ flowchart LR
 
 ## Phase 4 — Build / update HTML (agent)
 
-Load skill **wireframe-from-copy-doc**.
+Load skill **create-wireframe** (full run) or **wireframe-from-copy-doc** (copy pass only).
 
 For each page JSON:
 

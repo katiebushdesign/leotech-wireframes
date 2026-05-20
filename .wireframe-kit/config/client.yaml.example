@@ -3,11 +3,14 @@
 client_name: Client Name
 project_name: Website wireframes
 
+# GitHub (KBD standard) — repo: katiebushdesign/{clientname}-wireframes
+github_org: katiebushdesign
+github_repo: 212-visual-wireframes
+preview_base_url: https://katiebushdesign.github.io/212-visual-wireframes/
+
 copy_doc_url: https://docs.google.com/document/d/YOUR_DOC_ID/edit
 
 copy_docx_path: .wireframe-kit/content/source/copy.docx
-
-preview_base_url: https://your-org.github.io/your-repo/
 
 # Optional: Marker.io project id (leave empty to omit)
 marker_project_id: ""

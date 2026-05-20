@@ -26,7 +26,7 @@ make validate-blocks  # block classes exist in css/style.css
 2. Fill `.wireframe-kit/config/client.yaml` and `site-map.yaml`.
 3. Add HTML pages at repo root; assemble sections from `.wireframe-kit/blocks/`.
 4. Export copy doc → `make parse-copy` → agent applies JSON to pages.
-5. Deploy `main` or `gh-pages` branch to static hosting.
+5. `make setup-github SLUG=212-visual` — repo `katiebushdesign/{clientname}-wireframes` + GitHub Pages on `main`.
 
 ## Docs
 

@@ -8,11 +8,11 @@ Everything for **copy doc → HTML wireframe → deploy** lives in this director
 .wireframe-kit/
   AI-INSTRUCTIONS.md    ← agents: canonical procedures
   README.md             ← you are here
-  workflow.md           copy-doc-format.md  block-mapping.md  notes-and-cues.md
+  workflow.md  github-setup.md  copy-doc-format.md  block-mapping.md  notes-and-cues.md
   agent-integrations.md
   config/               client.yaml, site-map.yaml
-  skills/               wireframe-from-copy-doc, wireframe-html-blocks
-  scripts/              parse-copy-docx, sync-nav, sync-footer, link-agent-skills
+  skills/               create-wireframe, wireframe-from-copy-doc, wireframe-html-blocks
+  scripts/              parse-copy-docx, setup-github-repo, sync-nav, sync-footer, link-agent-skills
   blocks/               section HTML templates (placeholders)
   content/              parser output (pages/*.json, nav/, source/*.docx)
   Makefile
@@ -37,6 +37,8 @@ make sync          # nav + footer across site HTML
 ```
 
 ## New client
+
+**Agents:** say *create wireframes* or load `/create-wireframe` — the skill walks through intake then runs the pipeline.
 
 1. Copy the entire `.wireframe-kit/` folder into the new repo.
 2. Copy root stubs: `AGENTS.md`, `CLAUDE.md`, `Makefile`, `.github/copilot-instructions.md`.
