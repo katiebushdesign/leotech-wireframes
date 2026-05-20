@@ -10,7 +10,9 @@ description: >-
 
 **Follow:** [`AI-INSTRUCTIONS.md`](../AI-INSTRUCTIONS.md) — Task: **HTML blocks / structure**.
 
-**Also read:** [`block-mapping.md`](../block-mapping.md), [`blocks/registry.json`](../blocks/registry.json), [`blocks/README.md`](../blocks/README.md)
+**Also read:** [`assembling-pages.md`](../assembling-pages.md), [`block-mapping.md`](../block-mapping.md), [`blocks/registry.json`](../blocks/registry.json), [`blocks/README.md`](../blocks/README.md)
+
+**`topic-block`:** section H2 + `sub` outside the grid; cards from `items[]` only ([block-mapping.md](../block-mapping.md)).
 
 **After nav/footer edits:** `make sync`
 

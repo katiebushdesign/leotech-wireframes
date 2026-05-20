@@ -36,6 +36,19 @@ Parser and agent treat these as **meta**, not body copy.
 - **Card title + body**: use **bold** for title, normal text for description (parser splits on bold runs).
 - **CTAs**: short line with **hyperlink**; often ends with `→` or `»`.
 
+### Vertical hub row (`topic-block`) — CONSIDERATIONS
+
+Used on long-scroll verticals pages (Corporate, Hospitality, etc.). Column B shape:
+
+1. **Section H2** (bold line)
+2. **Intro paragraph** (normal text)
+3. **`CONSIDERATIONS`** (label only — not published)
+4. Three (or more) lines: **`Card title** card body`
+
+The parser splits this into JSON: `heading`, `sub`, `items[]` — **not** flat `paragraphs` for cards.
+
+Agents: map to `topic-block` only. **Never** put `heading` / `sub` inside the card grid.
+
 ### Split hero (common)
 
 | A | B |

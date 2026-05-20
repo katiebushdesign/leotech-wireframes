@@ -56,6 +56,7 @@ make serve         # local preview http://localhost:8765/ (background; make serv
 4. Strip **team notes** per [notes-and-cues.md](./notes-and-cues.md).
 5. Card count = bullets in column B (bold = title).
 6. **Revision** = patch repo-root HTML. **Greenfield** = assemble from blocks.
+7. **Do not** add ad-hoc page builders at repo root (e.g. `build-pages.py`). Use kit scripts only; HTML comes from **`blocks/*.html`** + JSON (see [assembling-pages.md](./assembling-pages.md)).
 
 ### Per-page algorithm
 
@@ -83,6 +84,13 @@ Shell: nav → breadcrumb → sections → `cta-band` → footer. Use `../` one 
 **Styling:** Only classes from `css/style.css`. Resolve all `{{placeholders}}` to real class names (see `blocks/registry.json` → `resolved_classes`). Run `make validate-blocks` after assembly.
 
 **Do not** invent frameworks or duplicate nav by hand.
+
+### `topic-block` (verticals sections)
+
+When JSON has `items` + `heading` / `sub` (parser output for `CONSIDERATIONS` rows):
+
+- Render **one** `topic-block` per copy-doc row (Corporate, Hospitality, …).
+- Cards = `items` only. Section title and intro stay in `sec-h2` / `sec-sub`, never in `card-title` / `card-desc`.
 
 ---
 

@@ -109,7 +109,9 @@ Follow **AI-INSTRUCTIONS.md** tasks:
 
 Rules:
 
+- Assemble from [assembling-pages.md](../assembling-pages.md) — **no** new `build-pages.py` at repo root.
 - Map sections via [block-mapping.md](../block-mapping.md) and [registry.json](../blocks/registry.json).
+- **`topic-block`:** use JSON `heading`, `sub`, `items` only — never duplicate heading/sub in cards.
 - Resolve all `{{placeholders}}` to real classes in `css/style.css`.
 - Strip team notes per [notes-and-cues.md](../notes-and-cues.md).
 - Use `../` for assets one level below repo root.

@@ -17,6 +17,7 @@ NOTE_RE = re.compile(
     re.I,
 )
 MEGA_RE = re.compile(r"MEGA\s*MENU", re.I)
+CONSIDERATIONS_SPLIT = re.compile(r"\*\*CONSIDERATIONS\*\*|\bCONSIDERATIONS\b", re.I)
 
 
 def cell_text(cell: ET.Element) -> str:
@@ -115,6 +116,53 @@ def match_path(title: str, site_map: dict[str, str]) -> str | None:
     return None
 
 
+def parse_consideration_items_from_text(text: str) -> list[dict]:
+    """Vertical hub rows: lines after CONSIDERATIONS → **title** body."""
+    if not CONSIDERATIONS_SPLIT.search(text):
+        return []
+    _, tail = CONSIDERATIONS_SPLIT.split(text, maxsplit=1)
+    items: list[dict] = []
+    for line in tail.strip().splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        m = re.match(r"\*\*([^*]+)\*\*\s*(.+)", line)
+        if not m:
+            continue
+        title, body = m.group(1).strip(), m.group(2).strip()
+        if title.upper() in {"CONSIDERATIONS", "ANCHORED NAV", "PARTNER TIERS"}:
+            continue
+        items.append({"title": title, "body": body})
+    return items
+
+
+def parse_heading_sub_before_considerations(text: str) -> tuple[str, str, list[str]]:
+    """H2 + intro paragraph before CONSIDERATIONS (not card copy)."""
+    if not CONSIDERATIONS_SPLIT.search(text):
+        return "", "", []
+    before = CONSIDERATIONS_SPLIT.split(text, maxsplit=1)[0]
+    lines = [ln.strip() for ln in before.splitlines() if ln.strip()]
+    heading = ""
+    sub = ""
+    extra: list[str] = []
+    for line in lines:
+        m = re.match(r"\*\*([^*]+)\*\*\s*(.*)", line)
+        if m and not heading:
+            heading = m.group(1).strip()
+            rest = m.group(2).strip()
+            if rest:
+                sub = rest
+            continue
+        if not heading:
+            heading = re.sub(r"\*+", "", line).strip()
+            continue
+        if not sub and len(line) > 40:
+            sub = re.sub(r"\*+", "", line).strip()
+        else:
+            extra.append(re.sub(r"\*+", "", line).strip())
+    return heading, sub, extra
+
+
 def parse_section_cell(text: str, paragraphs: list[dict]) -> dict:
     items = [x for x in paragraphs if x["type"] == "item"]
     plain = [x["text"] for x in paragraphs if x["type"] == "p" and not x.get("is_list")]
@@ -124,10 +172,22 @@ def parse_section_cell(text: str, paragraphs: list[dict]) -> dict:
         for m in [re.search(r"(?i)(note to\b.*?$|kill eyebrow.*?$|\(note to team[^)]*\))", line)]
         if m
     ]
+    consideration_items = parse_consideration_items_from_text(text)
+    if consideration_items:
+        heading, sub, extra_paras = parse_heading_sub_before_considerations(text)
+        return {
+            "heading": heading or (plain[0] if plain else ""),
+            "sub": sub,
+            "paragraphs": extra_paras,
+            "items": consideration_items,
+            "content_notes": content_notes,
+            "raw": text,
+        }
     heading = plain[0] if plain else ""
     body_paras = plain[1:] if len(plain) > 1 else []
     return {
         "heading": heading,
+        "sub": "",
         "paragraphs": body_paras,
         "items": items,
         "content_notes": content_notes,

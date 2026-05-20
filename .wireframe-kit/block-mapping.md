@@ -19,7 +19,7 @@ Normalize labels: lowercase; strip `kill eyebrow`, `note to…`, `kbd team:` fro
 | cta, cta band | `cta-band` |
 | footer (page bottom row) | `cta-band` |
 | contact, get in touch | `split-content` |
-| verticals / industry names (stacked hub) | `topic-block` (repeat per row) |
+| verticals / industry names (stacked hub) | `topic-block` (one block per row; see below) |
 
 ## Shape fallback
 
@@ -40,6 +40,24 @@ Normalize labels: lowercase; strip `kill eyebrow`, `note to…`, `kbd team:` fro
 | `cards-grid-media` | `columns`: 3, `tone`: white/grey |
 | `cards-grid-linked` | `columns`: 3, `inline_cta` if catchall copy at end of row |
 | `topic-block` | `tone`: alternate white/grey, `anchor_id` optional |
+
+## `topic-block` assembly (verticals hub)
+
+JSON from parser (after `make parse-copy`):
+
+| Field | Goes in HTML |
+|-------|----------------|
+| `heading` | `<h2 class="sec-h2">` only |
+| `sub` | `<p class="sec-sub">` only (if present) |
+| `items[]` | `<!-- repeat:cards -->` only — each `{title, body}` |
+
+**Do not:**
+
+- Put `heading` or `sub` text in the first card.
+- Parse the whole cell with a generic `**bold**` regex (that duplicates the section intro as a card).
+- Invent a one-off `build-pages.py` at repo root — fill `blocks/topic-block.html` by hand or patch existing HTML.
+
+If `items` is empty but `paragraphs` contains `CONSIDERATIONS`, re-run `make parse-copy` or split manually per [copy-doc-format.md](./copy-doc-format.md).
 
 ## Meta rows
 

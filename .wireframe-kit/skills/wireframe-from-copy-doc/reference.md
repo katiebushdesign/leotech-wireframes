@@ -31,10 +31,33 @@
         { "title": "Curved and architectural LED", "body": "Curved, wrapped..." }
       ],
       "content_notes": ["these should be photos, not just boxes with copy"]
+    },
+    {
+      "label": "**Corporate**",
+      "heading": "LED for the environments that represent the business.",
+      "sub": "Boardrooms, conference rooms…",
+      "items": [
+        { "title": "Conferencing system integration", "body": "LED systems specified…" },
+        { "title": "Content for the corporate audience", "body": "Brand-led motion design…" },
+        { "title": "Quiet, continuous operation", "body": "Hardware engineered…" }
+      ],
+      "paragraphs": []
     }
   ]
 }
 ```
+
+## Vertical hub row (`topic-block`)
+
+After `make parse-copy`, rows with **CONSIDERATIONS** in the doc have `heading`, `sub`, and `items` — not card copy in `paragraphs`.
+
+| JSON field | Block field |
+|------------|-------------|
+| `heading` | `{{heading}}` in `sec-h2` only |
+| `sub` | `{{sub}}` in `sec-sub` only |
+| `items[]` | `<!-- repeat:cards -->` only |
+
+Never copy `heading` / `sub` into the first card. See [assembling-pages.md](../../assembling-pages.md).
 
 ## Section list item (from docx bullet + bold)
 

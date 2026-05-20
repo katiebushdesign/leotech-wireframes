@@ -10,7 +10,7 @@ description: >-
 
 **Follow:** [`AI-INSTRUCTIONS.md`](../AI-INSTRUCTIONS.md) — Task: **Apply copy from doc**.
 
-**Also read:** [`notes-and-cues.md`](../notes-and-cues.md), [`block-mapping.md`](../block-mapping.md), `../config/client.yaml`, `../config/site-map.yaml`.
+**Also read:** [`assembling-pages.md`](../assembling-pages.md), [`notes-and-cues.md`](../notes-and-cues.md), [`block-mapping.md`](../block-mapping.md), `../config/client.yaml`, `../config/site-map.yaml`.
 
 **JSON examples:** [reference.md](reference.md)
 
