@@ -1,9 +1,9 @@
 ---
 name: wireframe-from-copy-doc
 description: >-
-  Applies Google Docs copy (table-based page tables) to HTML wireframes via docx
-  export and JSON. Use when updating copy from the client copy doc, parsing docx,
-  building pages from copy tables, or when the user mentions wireframe copy workflow.
+  Applies Google Docs copy (one table per page; flexible row/column layout) to HTML
+  wireframes via docx export and JSON. Use when updating copy from the client copy
+  doc, parsing docx, building pages from copy tables, or wireframe copy workflow.
 ---
 
 # Wireframe from copy doc

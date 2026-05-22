@@ -64,10 +64,10 @@ For each page JSON:
 | Mode | Copy doc signals | Agent behavior |
 |------|------------------|----------------|
 | **Greenfield** | New table, empty repo page | Assemble full page from blocks + shell |
-| **Revision** | Same table; changed right column | Update text/CTAs/lists in existing HTML |
-| **Structural** | New row, new left label, “new section” notes | Add block section; may need new `blocks/*.html` |
+| **Revision** | Same table; changed body cells | Update text/CTAs/lists in existing HTML |
+| **Structural** | New row, new section label, “new section” notes | Add block section; may need new `blocks/*.html` |
 
-Notes in the left or right column apply in **both** modes — they are instructions, not published copy.
+Team notes (any cell) apply in **both** modes — instructions, not published copy. Agents distinguish notes from copy per [notes-and-cues.md](./notes-and-cues.md).
 
 ## What we do not automate (yet)
 

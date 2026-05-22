@@ -13,9 +13,14 @@ KIT_ROOT = Path(__file__).resolve().parent.parent
 REPO_ROOT = KIT_ROOT.parent
 NS = {"w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
 NOTE_RE = re.compile(
-    r"^\s*(note\b|note to\b|\(note\b|kill\b|kbd team\b)",
+    r"^\s*("
+    r"note\b|note\s*:|note\s+to\b|note\s+to\s+team\b|"
+    r"\(note\b|kill\b|kbd\s+team\b|team:\s|"
+    r"do\s+not\s+fold\b|net\s+new\b"
+    r")",
     re.I,
 )
+HEADING_ONLY_MAX = 120
 MEGA_RE = re.compile(r"MEGA\s*MENU", re.I)
 CONSIDERATIONS_SPLIT = re.compile(r"\*\*CONSIDERATIONS\*\*|\bCONSIDERATIONS\b", re.I)
 
@@ -163,13 +168,37 @@ def parse_heading_sub_before_considerations(text: str) -> tuple[str, str, list[s
     return heading, sub, extra
 
 
+def is_note_text(text: str) -> bool:
+    return bool(NOTE_RE.search(text.strip()))
+
+
+def is_heading_only_row(label: str, content: dict) -> bool:
+    """Row that is only a section title — copy often follows on the next row."""
+    if not label or is_note_text(label):
+        return False
+    if content.get("items") or content.get("content_notes"):
+        return False
+    paras = content.get("paragraphs") or []
+    heading = (content.get("heading") or "").strip()
+    if len(label) > HEADING_ONLY_MAX:
+        return False
+    if paras or heading:
+        return False
+    return True
+
+
 def parse_section_cell(text: str, paragraphs: list[dict]) -> dict:
     items = [x for x in paragraphs if x["type"] == "item"]
     plain = [x["text"] for x in paragraphs if x["type"] == "p" and not x.get("is_list")]
     content_notes = [
         m.group(0)
         for line in text.splitlines()
-        for m in [re.search(r"(?i)(note to\b.*?$|kill eyebrow.*?$|\(note to team[^)]*\))", line)]
+        for m in [
+            re.search(
+                r"(?i)(note\s*:|note\s+to\b.*?$|kill eyebrow.*?$|\(note to team[^)]*\))",
+                line,
+            )
+        ]
         if m
     ]
     consideration_items = parse_consideration_items_from_text(text)
@@ -195,38 +224,111 @@ def parse_section_cell(text: str, paragraphs: list[dict]) -> dict:
     }
 
 
+def page_title_from_row(cells: list[ET.Element]) -> str:
+    """Best-effort page title from row 0 (merged or multi-cell)."""
+    parts = [clean_title(cell_text(c).strip()) for c in cells]
+    parts = [p for p in parts if p]
+    if not parts:
+        return ""
+    if len(parts) == 1:
+        return parts[0]
+    return parts[0]
+
+
+def parse_section_row(cells: list[ET.Element]) -> dict | None:
+    """One table row → section JSON (flexible cell count)."""
+    if not cells:
+        return None
+
+    n = len(cells)
+    texts = [cell_text(c).strip() for c in cells]
+
+    if n == 1:
+        label = ""
+        body_text = texts[0]
+        paras = cell_paragraphs(cells[0])
+        if is_note_text(body_text):
+            return {
+                "label": "",
+                "meta_row": True,
+                "instruction": body_text,
+                "heading": "",
+                "sub": "",
+                "paragraphs": [],
+                "items": [],
+                "content_notes": [],
+                "raw": body_text,
+            }
+        content = parse_section_cell(body_text, paras)
+        if is_heading_only_row(body_text, content):
+            return {
+                "label": body_text,
+                "heading_only": True,
+                "meta_row": False,
+                "instruction": None,
+                "heading": "",
+                "sub": "",
+                "paragraphs": [],
+                "items": [],
+                "content_notes": [],
+                "raw": body_text,
+            }
+        return {
+            "label": label,
+            "meta_row": False,
+            "instruction": None,
+            **content,
+        }
+
+    label = texts[0]
+    body_cells = cells[1:]
+    body_texts = texts[1:]
+    joined_body = "\n\n".join(t for t in body_texts if t)
+    paras: list[dict] = []
+    for c in body_cells:
+        paras.extend(cell_paragraphs(c))
+    content = parse_section_cell(joined_body, paras)
+
+    meta = is_note_text(label) and len(label) < 160
+    if not meta and not joined_body.strip() and is_note_text(label):
+        meta = True
+
+    section: dict = {
+        "label": label,
+        "meta_row": meta
+        and not content["items"]
+        and not content.get("heading"),
+        "instruction": label if meta else None,
+        **content,
+    }
+
+    if n >= 3:
+        section["multi_column"] = True
+        section["cell_texts"] = texts
+
+    if is_heading_only_row(label, content):
+        section["heading_only"] = True
+
+    return section
+
+
 def parse_table(tbl: ET.Element, site_map: dict[str, str]) -> dict | None:
     rows = tbl.findall("w:tr", NS)
     if not rows:
         return None
     r0_cells = rows[0].findall("w:tc", NS)
-    title = clean_title(cell_text(r0_cells[0]).strip())
+    title = page_title_from_row(r0_cells)
     if not title:
         return None
     if MEGA_RE.search(title):
         return {"type": "mega_menu", "title": title, "rows": len(rows)}
 
-    # Page table: row0 merged title, then 2-col sections
-    if len(r0_cells) > 1:
-        return None
-
     sections = []
     for row in rows[1:]:
         cells = row.findall("w:tc", NS)
-        if len(cells) < 2:
-            continue
-        label = cell_text(cells[0]).strip()
-        paras = cell_paragraphs(cells[1])
-        content = parse_section_cell(cell_text(cells[1]), paras)
-        meta = bool(NOTE_RE.search(label)) and len(label) < 120
-        sections.append(
-            {
-                "label": label,
-                "meta_row": meta and not content["items"] and not content["heading"],
-                "instruction": label if meta else None,
-                **content,
-            }
-        )
+        parsed = parse_section_row(cells)
+        if parsed:
+            sections.append(parsed)
 
     path = match_path(title, site_map)
     return {

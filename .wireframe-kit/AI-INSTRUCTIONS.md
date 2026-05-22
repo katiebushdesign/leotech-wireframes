@@ -52,9 +52,9 @@ make serve         # local preview http://localhost:8765/ (background; make serv
 
 1. **Docx or JSON only** — not plain text export.
 2. Map sections via [block-mapping.md](./block-mapping.md); fill `blocks/*.html` per [registry.json](blocks/registry.json).
-3. Column A = section intent; column B = publishable copy.
-4. Strip **team notes** per [notes-and-cues.md](./notes-and-cues.md).
-5. Card count = bullets in column B (bold = title).
+3. **One table per page**; each row is usually one section. Layout varies (1–N cells) — use JSON + judgment; see [copy-doc-format.md](./copy-doc-format.md).
+4. Strip **team notes** per [notes-and-cues.md](./notes-and-cues.md) (not an exhaustive phrase list).
+5. Card count = bullets in section body (bold = title). Respect `heading_only`, `multi_column`, `meta_row` in JSON.
 6. **Revision** = patch repo-root HTML. **Greenfield** = assemble from blocks.
 7. **Do not** add ad-hoc page builders at repo root (e.g. `build-pages.py`). Use kit scripts only; HTML comes from **`blocks/*.html`** + JSON (see [assembling-pages.md](./assembling-pages.md)).
 
