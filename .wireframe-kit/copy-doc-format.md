@@ -6,57 +6,59 @@ Canonical example: link in `.wireframe-kit/config/client.yaml`.
 
 1. **Optional preamble** — project title, mega menu section (plain text or tables).
 2. **Mega menu tables** — multi-column grids; row 0 = `SOLUTIONS MEGA MENU`, etc.
-3. **Page tables** — one table per wireframe page.
+3. **Page tables** — **one table per wireframe page** (this rule stays strict).
 
-## Page table layout
+## Page tables (flexible layout)
 
-| Row | Column A | Column B |
-|-----|----------|----------|
-| 0 (merged) | **Page title** — matches `site-map.yaml` title, e.g. `SOLUTIONS: High Impact Installations` |
-| 1…n | Section label | Section content |
+Writers do not need a rigid two-column grid. Tables vary: merged title rows, one cell per row, two columns (label + copy), or **extra columns that represent wireframe layout** (e.g. left column / right column on the page) rather than “section name / body.”
 
-### Column A (section label)
+| Constant | Meaning |
+|----------|---------|
+| **One table = one page** | Page name in the top row (often merged across cells). Must match a title in `site-map.yaml`. |
+| **One row ≈ one section** | Usually. Sometimes a row is **only a section heading** (next row holds the copy). Sometimes a row is **only a team note**. Use judgment when building HTML. |
+| **Publishable copy vs notes** | Notes are not body copy. See [notes-and-cues.md](./notes-and-cues.md). |
 
-Human name for the section. Examples: `Hero`, `What we build`, `Key Questions`, `CTA Band`, `Footer`.
+### Typical patterns (not requirements)
 
-May include **team cues** appended or on their own row:
+| Pattern | How to read it |
+|---------|----------------|
+| Label + content (2 cells) | First cell = section intent (`Hero`, `What we build`); rest = copy, lists, CTAs. |
+| Single cell | May be a **section title row**, **full section in one cell**, or a **standalone note**. |
+| 3+ cells | May be **layout columns** on the wireframe; do not assume “column A / column B” semantics. Parser keeps per-cell text in JSON for the agent. |
+| Split hero | Headline in one row, lead + CTAs in the next (with or without a note row between). Agent merges into one `page-hero` unless a note says otherwise. |
 
-- `Note to KBD team: …`
-- `Kill eyebrow`
-- `(note to team, this is the headline)`
-- `KBD team: new design structure: 4 cards`
+### Section labels and team cues
 
-Parser and agent treat these as **meta**, not body copy.
+Section intent often appears in the **first cell** of a row (when present): `Hero`, `What we build`, `Key Questions`, `CTA Band`.
 
-### Column B (content)
+Team cues may appear in any cell or on their own row. Common signals (not exhaustive):
 
-- **Hero**: often headline in first paragraph; body/CTAs may be **next row** (see split-hero below).
-- **Section heading**: first paragraph(s) before a list.
-- **Repeatables**: Google Docs **bulleted lists** — card count = number of bullets (do not label Card 1, Card 2).
-- **Card title + body**: use **bold** for title, normal text for description (parser splits on bold runs).
+- `Note`, `Note to team:`, `Note to KBD team:`
+- `(note to team, …)`
+- `Kill eyebrow`, `KBD team: …`
+
+Parser and agent treat these as **meta**, not published copy. When phrasing is ambiguous, **prefer not publishing** the line and flag it in the build summary.
+
+### Content shape (wherever the copy lives)
+
+- **Hero**: often headline first; body/CTAs may be on the **next row**.
+- **Section heading**: a row that is only a heading, or the first paragraph before a list.
+- **Repeatables**: Google Docs **bulleted lists** — card count = bullet count (do not label Card 1, Card 2).
+- **Card title + body**: **bold** title, normal description (parser splits on bold runs).
 - **CTAs**: short line with **hyperlink**; often ends with `→` or `»`.
 
 ### Vertical hub row (`topic-block`) — CONSIDERATIONS
 
-Used on long-scroll verticals pages (Corporate, Hospitality, etc.). Column B shape:
+Used on long-scroll verticals pages (Corporate, Hospitality, etc.). Cell content often follows:
 
 1. **Section H2** (bold line)
-2. **Intro paragraph** (normal text)
+2. **Intro paragraph**
 3. **`CONSIDERATIONS`** (label only — not published)
-4. Three (or more) lines: **`Card title** card body`
+4. Lines: **`Card title** card body`
 
-The parser splits this into JSON: `heading`, `sub`, `items[]` — **not** flat `paragraphs` for cards.
+Parser splits into JSON: `heading`, `sub`, `items[]` when `CONSIDERATIONS` is detected.
 
 Agents: map to `topic-block` only. **Never** put `heading` / `sub` inside the card grid.
-
-### Split hero (common)
-
-| A | B |
-|---|---|
-| `Hero` | Headline only |
-| `Note, do not fold…` / empty | Lead paragraph + CTA links |
-
-Agent merges into one `page-hero` block unless a note says to keep separate sections.
 
 ## Mega menu tables
 
@@ -75,8 +77,16 @@ Structure: header row + grid of columns; cells contain title+description (often 
 ## Writer guidelines (paste into doc intro)
 
 1. One **table per page**; page name in the top row.
-2. Each **section** = one table row; section name in the left column.
-3. Put **features/steps/cards** as a **bullet list** in the right column (bold the card title).
+2. Each **section** is usually one table row (extra rows OK for headings-only or notes).
+3. Put **features/steps/cards** as a **bullet list** (bold the card title).
 4. Put **buttons** on their own line as a **link** (e.g. `Become a partner →`).
-5. Put **internal team notes** in the left column or in italics — we won’t publish them.
-6. Don’t worry about layout; we map sections to the wireframe.
+5. Mark **internal team notes** clearly (`Note:`, `Note to team:`) — we won’t publish them.
+6. Don’t worry about exact column count; we map sections to the wireframe with judgment.
+
+## Agent judgment (after `make parse-copy`)
+
+JSON is a **best-effort structural export**, not a perfect page model. When building HTML:
+
+- Distinguish **notes** from **copy** using cues in [notes-and-cues.md](./notes-and-cues.md) and context (adjacent rows, italics, tone).
+- Treat **heading-only rows** as belonging to the following section unless a note says otherwise.
+- For `multi_column` sections, decide whether cells are layout columns or label+body before choosing a block.

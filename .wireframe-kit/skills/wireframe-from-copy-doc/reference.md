@@ -1,5 +1,7 @@
 # Parsed page JSON shape (from parse-copy-docx.py)
 
+Best-effort export — table layouts vary. Agents apply judgment for notes, heading-only rows, and `multi_column` rows ([copy-doc-format.md](../../copy-doc-format.md)).
+
 ## Page file: `content/pages/solutions-high-impact.json`
 
 ```json
@@ -26,6 +28,7 @@
     },
     {
       "label": "What we build",
+      "heading_only": false,
       "heading": "Every environment, every form factor.",
       "items": [
         { "title": "Curved and architectural LED", "body": "Curved, wrapped..." }
@@ -70,6 +73,33 @@ Never copy `heading` / `sub` into the first card. See [assembling-pages.md](../.
 ```json
 { "label": "Start a conversation →", "href": "../become-a-partner.html" }
 ```
+
+## Multi-column row (layout or extra cells)
+
+```json
+{
+  "label": "Hero",
+  "multi_column": true,
+  "cell_texts": ["Hero", "Headline copy…", "Sidebar note…"],
+  "heading": "…",
+  "paragraphs": []
+}
+```
+
+Decide whether `cell_texts` are wireframe columns or label + body before mapping to a block.
+
+## Heading-only row
+
+```json
+{
+  "label": "What we build",
+  "heading_only": true,
+  "paragraphs": [],
+  "items": []
+}
+```
+
+Attach label/heading to the **next** section when assembling HTML.
 
 ## Nav: `content/nav/mega-menus.json`
 

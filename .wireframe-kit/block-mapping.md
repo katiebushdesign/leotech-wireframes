@@ -1,12 +1,14 @@
 # Copy doc → block mapping
 
-Infer block from **column A label** + **shape of column B**. Canonical definitions: [`blocks/registry.json`](blocks/registry.json).
+Infer block from **section label** (first cell when present) + **content shape** in the remaining cells. Docs are not always two columns — use JSON fields and judgment ([copy-doc-format.md](./copy-doc-format.md), [notes-and-cues.md](./notes-and-cues.md)).
+
+Canonical definitions: [`blocks/registry.json`](blocks/registry.json).
 
 Normalize labels: lowercase; strip `kill eyebrow`, `note to…`, `kbd team:` from label text.
 
 ## Label → block
 
-| Column A (contains) | Block ID |
+| Label (contains) | Block ID |
 |---------------------|----------|
 | hero (homepage / first table on index) | `hero-landing` |
 | hero, overview (inner page) | `hero-page` |
@@ -23,7 +25,7 @@ Normalize labels: lowercase; strip `kill eyebrow`, `note to…`, `kbd team:` fro
 
 ## Shape fallback
 
-| Shape in column B | Block |
+| Content shape | Block |
 |-----------------|--------|
 | First section: short title + long prose + links | `hero-page` (merge meta row per notes) |
 | H2 + bullets, titles end with `?` | `section-qa` |
@@ -59,9 +61,17 @@ JSON from parser (after `make parse-copy`):
 
 If `items` is empty but `paragraphs` contains `CONSIDERATIONS`, re-run `make parse-copy` or split manually per [copy-doc-format.md](./copy-doc-format.md).
 
+## Parser hints
+
+| JSON flag | Agent behavior |
+|-----------|----------------|
+| `meta_row` / `instruction` | Note row — apply to adjacent section; do not publish |
+| `heading_only` | Section title only — merge with **next** row’s block |
+| `multi_column` + `cell_texts` | May be layout columns — read all cells before picking a block |
+
 ## Meta rows
 
-Column A is only a note (“do not fold into hero”) → apply to adjacent block; do not render as its own section. See [notes-and-cues.md](./notes-and-cues.md).
+A row that is only a note (“do not fold into hero”) → apply to adjacent block; do not render as its own section. See [notes-and-cues.md](./notes-and-cues.md).
 
 ## Shell
 
