@@ -1,19 +1,11 @@
-# Generated content (not client-specific in git)
+# Copy pipeline output (committed in client wireframe repos)
 
-This folder holds **parser output** from `make parse-copy`. It should be empty in the starter template except `.gitkeep` files.
+This folder holds **parser output** from `make parse-copy`. In **client** repos (e.g. `leotech-wireframes`), commit `pages/` and `nav/` so anyone cloning the repo has the same structured copy without re-exporting the Google Doc.
 
-| Path | Git |
-|------|-----|
-| `source/*.docx` | Ignored — export from Google Doc here |
-| `pages/*.json` | Ignored — generated per client |
-| `nav/*.json` | Ignored — generated mega menus |
+| Path | Git in client repos |
+|------|---------------------|
+| `source/*.docx` | Ignored — export from Google Doc locally when refreshing copy |
+| `pages/*.json` | **Tracked** — one JSON file per copy-doc page table |
+| `nav/*.json` | **Tracked** — mega menu tables from the doc (if any) |
 
-After cloning the starter, run `make parse-copy` once you have a copy doc. Do not commit 212 (or other client) JSON into `wireframe-kit-starter`.
-
-To clear leftover local files:
-
-```bash
-rm -f .wireframe-kit/content/pages/*.json \
-      .wireframe-kit/content/nav/*.json \
-      .wireframe-kit/content/source/*.docx
-```
+After copy doc changes: export `.docx` to `source/`, run `make parse-copy`, commit updated JSON, then update HTML.

@@ -1,0 +1,28 @@
+{
+  "type": "page",
+  "title": "Solutions",
+  "slug": "solutions",
+  "path": null,
+  "sections": [
+    {
+      "label": "",
+      "meta_row": false,
+      "instruction": null,
+      "heading": "Solutions for Every Mission-Critical Challenge",
+      "sub": "",
+      "paragraphs": [
+        "Suicide Prevention",
+        "Criminal Network Disruption",
+        "Gang Activity Prevention",
+        "Operational Efficiency",
+        "Cross-Agency Intelligence",
+        "(note to team: need to discuss how deep we can go on success stories, and get more details on each. Would include as a sorting feature in News section)"
+      ],
+      "items": [],
+      "content_notes": [
+        "(note to team: need to discuss how deep we can go on success stories, and get more details on each. Would include as a sorting feature in News section)"
+      ],
+      "raw": "**Solutions for Every Mission-Critical Challenge**From crisis prevention to criminal investigation, VerusAI delivers the AI-powered intelligence agencies need to protect communities and save lives.**Contraband Investigations** Track and stop cell phones, drugs, and weapons flowing into facilities\n**Suicide Prevention** Early intervention through AI-powered conversation monitoring\n**Criminal Network Disruption** Stop command & control operations run from inside facilities\n**Gang Activity Prevention** Monitor communications, identify threats before they escalate\n**Operational Efficiency** Build capacity without headcount\u2014millions in potential savings\n**Cross-Agency Intelligence** Support FBI, DEA, and multi-jurisdictional investigations\n(note to team: need to discuss how deep we can go on success stories, and get more details on each. Would include as a sorting feature in News section)"
+    }
+  ]
+}

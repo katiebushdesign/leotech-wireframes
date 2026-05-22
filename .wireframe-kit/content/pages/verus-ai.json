@@ -1,0 +1,100 @@
+{
+  "type": "page",
+  "title": "Verus AI",
+  "slug": "verus-ai",
+  "path": null,
+  "sections": [
+    {
+      "label": "",
+      "meta_row": false,
+      "instruction": null,
+      "heading": "The AI Platform Built for Law Enforcement",
+      "sub": "",
+      "paragraphs": [],
+      "items": [],
+      "content_notes": [],
+      "raw": "**The AI Platform Built for Law Enforcement**From natural language search to agentic AI, VerusAI transforms how agencies gather, analyze, and act on intelligence\u2014delivering the insights that matter most in seconds, not weeks."
+    },
+    {
+      "label": "",
+      "meta_row": false,
+      "instruction": null,
+      "heading": "One Platform. All Your Intelligence. Instant Results.",
+      "sub": "",
+      "paragraphs": [
+        "VerusAI integrates your agency's data sources into a single AI-powered platform that understands context, learns continuously, and delivers actionable intelligence when you need it most.",
+        "The Challenge We Solve:",
+        "VerusAI eliminates the manual work, integrates your data sources, and lets AI do what it does best: find patterns, understand context, and surface the intelligence that matters.",
+        "The Result:"
+      ],
+      "items": [],
+      "content_notes": [],
+      "raw": "**One Platform. All Your Intelligence. Instant Results.**\nVerusAI integrates your agency's data sources into a single AI-powered platform that understands context, learns continuously, and delivers actionable intelligence when you need it most.\n**The Challenge We Solve:** Intelligence analysts shouldn't sit behind 3-4 computer screens, manually pulling data from 5-7 different databases and comparing it themselves. That's not analysis\u2014that's data entry.\nVerusAI eliminates the manual work, integrates your data sources, and lets AI do what it does best: find patterns, understand context, and surface the intelligence that matters.\n**The Result:** Your team focuses on investigation and decision-making, not data wrangling. One platform. All your intelligence. Instant results."
+    },
+    {
+      "label": "",
+      "meta_row": false,
+      "instruction": null,
+      "heading": "Core Capabilities (Three Sections)",
+      "sub": "",
+      "paragraphs": [],
+      "items": [],
+      "content_notes": [],
+      "raw": "**Core Capabilities (Three Sections)**"
+    },
+    {
+      "label": "",
+      "meta_row": false,
+      "instruction": null,
+      "heading": "Natural Language Search",
+      "sub": "",
+      "paragraphs": [
+        "\"Show me all contraband discussions in the last 48 hours\" \u2192 Instant results",
+        "If you can use ChatGPT, you can use VerusAI.",
+        "Semantic Intelligence",
+        "\"Lakers tickets\" = drugs. AI figures it out based on conversational context.",
+        "Unlike basic keyword tools that deliver 13,000 results to manually review, VerusAI narrows it to the 4-5 that actually matter.",
+        "Agentic AI (Coming Q1 2026)"
+      ],
+      "items": [],
+      "content_notes": [],
+      "raw": "**Natural Language Search **Ask questions like talking to a colleague. No keywords, no complex syntax, no training required.\n\"Show me all contraband discussions in the last 48 hours\" \u2192 Instant results\nIf you can use ChatGPT, you can use VerusAI.\n**Semantic Intelligence** AI that comprehends context and meaning. Automatically learns street terminology, regional dialects, and code language.\n\"Lakers tickets\" = drugs. AI figures it out based on conversational context.\nUnlike basic keyword tools that deliver 13,000 results to manually review, VerusAI narrows it to the 4-5 that actually matter.\n**Agentic AI (Coming Q1 2026)** AI agents that work 24/7 on your behalf. Monitor multiple investigations simultaneously, get proactive alerts. One investigator \u2192 Ten concurrent casesEach AI agent is new manpower\u2014capacity without added headcount."
+    },
+    {
+      "label": "",
+      "meta_row": false,
+      "instruction": null,
+      "heading": "All Your Data Sources. One Platform.",
+      "sub": "",
+      "paragraphs": [
+        "Currently Integrated:",
+        "Coming Soon:"
+      ],
+      "items": [],
+      "content_notes": [],
+      "raw": "**All Your Data Sources. One Platform.**\n**Currently Integrated:**\nInmate call recordings\nText messages and communications\nOffender management systems\nIncident records and reports\nInvestigatory data\nPopulation movement tracking\n**Coming Soon:**\nBody-worn camera footage (Axon partnership)\nFixed facility cameras\nLicense plate readers\nAdditional data sources"
+    },
+    {
+      "label": "",
+      "meta_row": false,
+      "instruction": null,
+      "heading": "Enterprise Grade Security for Mission Critical Intelligence",
+      "sub": "",
+      "paragraphs": [],
+      "items": [],
+      "content_notes": [],
+      "raw": "**Enterprise Grade Security for Mission Critical Intelligence**\nAWS cloud infrastructure with 99.9% uptime\nEncryption at rest and in transit\nRole-based access controls\nHuman-in-the-loop: AI recommends, humans decide"
+    },
+    {
+      "label": "",
+      "meta_row": false,
+      "instruction": null,
+      "heading": "Closing: Customer Scroller with QuotesSee Verus in Action \u00bb",
+      "sub": "",
+      "paragraphs": [],
+      "items": [],
+      "content_notes": [],
+      "raw": "**Closing: Customer Scroller with Quotes****See Verus in Action \u00bb**"
+    }
+  ]
+}
