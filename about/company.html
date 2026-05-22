@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — LeoTech Wireframe</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="../index.html" class="nav-logo" aria-label="LeoTech"></a>
+    <div class="nav-links">
+      <a href="../verusai.html" class="nav-btn">VerusAI</a>
+      <a href="../solutions/index.html" class="nav-btn">Solutions</a>
+      <a href="#" class="nav-btn">News &amp; Resources</a>
+      <div class="nav-item">
+        <button type="button" class="nav-btn" data-mega="mega-about">About <span class="chevron">▾</span></button>
+      </div>
+      <a href="#" class="nav-btn">Partnerships</a>
+    </div>
+    <div class="nav-right">
+      <a href="#" class="nav-cta">Request Demo</a>
+    </div>
+  </div>
+</nav>
+<div class="mega-backdrop" id="mega-backdrop"></div>
+
+<div class="mega-panel" id="mega-about">
+  <div class="mega-eyebrow">About</div>
+  <div class="mega-grid-3">
+    <div class="mega-col">
+      <a href="../about/company.html" class="mega-item"><span class="mega-item-title">Company</span><span class="mega-item-desc">Mission, beliefs, and bringing tomorrow's AI to law enforcement</span></a>
+      <a href="#" class="mega-item"><span class="mega-item-title">Careers</span><span class="mega-item-desc">Join the team — page TBD</span></a>
+    </div>
+  </div>
+</div>
+
+<div class="breadcrumb">
+  <div class="breadcrumb-inner"><a href="../index.html" class="bc-item">Home</a><span class="bc-sep">›</span><a href="../about/company.html" class="bc-item">About</a><span class="bc-sep">›</span><span class="bc-active">Company</span></div>
+</div>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <h1 class="page-hero-h1">Bringing Tomorrow's AI to Today's Law Enforcement</h1>
+    <p class="page-hero-sub">The people who protect us deserve access to the most advanced intelligence technology available—not outdated tools that leave them years behind.</p>
+  </div>
+</section>
+
+<section class="section-white pad-xl">
+  <div class="inner" style="max-width:800px;">
+    <h2 class="sec-h2">Our Mission</h2>
+    <p class="sec-sub" style="margin-top:16px;">LeoTech transforms law enforcement intelligence by delivering AI-powered platforms that turn weeks of manual investigation into seconds of actionable insight—empowering those who protect us with the technology they deserve and the capacity they need to save lives, stop crimes, and build safer communities.</p>
+  </div>
+</section>
+
+<section class="section-grey pad-xl">
+  <div class="inner">
+    <h2 class="sec-h2">What We Believe</h2>
+    <div class="grid-2" style="margin-top:40px;gap:24px;">
+      <div class="card-grey">
+        <div class="card-title">Officers Deserve the Best</div>
+        <div class="card-desc">Law enforcement professionals shouldn't wait years for technology that's already transforming other industries.</div>
+      </div>
+      <div class="card-grey">
+        <div class="card-title">Every Second Counts</div>
+        <div class="card-desc">When intelligence can save a life, prevent a crime, or protect an officer, speed isn't a luxury—it's essential.</div>
+      </div>
+      <div class="card-grey">
+        <div class="card-title">We Stand Alongside, Not Apart</div>
+        <div class="card-desc">We're not vendors selling to law enforcement. We're partners standing in the gap beside them.</div>
+      </div>
+      <div class="card-grey">
+        <div class="card-title">Innovation is Our Responsibility</div>
+        <div class="card-desc">The technology exists to transform law enforcement intelligence. LeoTech is here to make it accessible and effective.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="footer-cta">
+  <div class="footer-cta-inner">
+    <div>
+      <div class="footer-cta-title">See LeoTech in Action</div>
+      <div class="footer-cta-sub">The best way to understand LeoTech's capabilities is to see them yourself.</div>
+    </div>
+    <a href="#" class="btn-white">Request Demo</a>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo" role="img" aria-label="LeoTech"></div>
+      <div class="footer-tagline">Law enforcement intelligence — wireframe preview.</div>
+    </div>
+    <div>
+      <div class="footer-col-title">Product</div>
+      <a href="../verusai.html" class="footer-link">VerusAI</a>
+      <a href="../solutions/index.html" class="footer-link">Solutions</a>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <a href="../about/company.html" class="footer-link">About</a>
+      <a href="#" class="footer-link">Partnerships</a>
+      <a href="#" class="footer-link">Careers</a>
+    </div>
+    <div>
+      <div class="footer-col-title">Resources</div>
+      <a href="#" class="footer-link">News &amp; Resources</a>
+      <a href="#" class="footer-link">Request Demo</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-text">© LeoTech — Wireframe preview</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var backdrop = document.getElementById('mega-backdrop');
+  var panels = document.querySelectorAll('.mega-panel');
+  var buttons = document.querySelectorAll('[data-mega]');
+  function closeAll(){
+    if (backdrop) backdrop.classList.remove('open');
+    panels.forEach(function(p){ p.classList.remove('open'); });
+    buttons.forEach(function(b){ b.classList.remove('active'); });
+  }
+  buttons.forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var id = btn.getAttribute('data-mega');
+      var panel = document.getElementById(id);
+      var open = panel && panel.classList.contains('open');
+      closeAll();
+      if(!open && panel){ panel.classList.add('open'); btn.classList.add('active'); if (backdrop) backdrop.classList.add('open'); }
+    });
+  });
+  if (backdrop) backdrop.addEventListener('click', closeAll);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeAll(); });
+})();
+</script>
+</body>
+</html>

@@ -3,54 +3,144 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wireframe preview</title>
+<title>Homepage — LeoTech Wireframe</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<!-- NAV: replace with your nav; run make sync after editing index.html mega menu -->
 <nav class="navbar">
   <div class="navbar-inner">
-    <a href="index.html" class="nav-logo" aria-label="Logo"></a>
+    <a href="index.html" class="nav-logo" aria-label="LeoTech"></a>
     <div class="nav-links">
-      <a href="index.html" class="nav-btn" style="text-decoration:none;padding:8px 12px;">Home</a>
+      <a href="verusai.html" class="nav-btn">VerusAI</a>
+      <a href="solutions/index.html" class="nav-btn">Solutions</a>
+      <a href="#" class="nav-btn">News &amp; Resources</a>
+      <div class="nav-item">
+        <button type="button" class="nav-btn" data-mega="mega-about">About <span class="chevron">▾</span></button>
+      </div>
+      <a href="#" class="nav-btn">Partnerships</a>
     </div>
     <div class="nav-right">
-      <a href="#" class="nav-cta">Primary CTA</a>
+      <a href="#" class="nav-cta">Request Demo</a>
     </div>
   </div>
 </nav>
 <div class="mega-backdrop" id="mega-backdrop"></div>
 
-<!-- Example: homepage hero (from blocks/hero-landing.html) -->
+<div class="mega-panel" id="mega-about">
+  <div class="mega-eyebrow">About</div>
+  <div class="mega-grid-3">
+    <div class="mega-col">
+      <a href="about/company.html" class="mega-item"><span class="mega-item-title">Company</span><span class="mega-item-desc">Mission, beliefs, and bringing tomorrow's AI to law enforcement</span></a>
+      <a href="#" class="mega-item"><span class="mega-item-title">Careers</span><span class="mega-item-desc">Join the team — page TBD</span></a>
+    </div>
+  </div>
+</div>
+
 <section class="hero">
   <div class="hero-inner">
-    <h1 class="hero-h1">Wireframe preview</h1>
-    <p class="hero-lead">Replace this page with copy from your doc.</p>
-    <p class="hero-sub">Assemble sections from <code>.wireframe-kit/blocks/</code> or run the copy pipeline (<code>make parse-copy</code>).</p>
+    <h1 class="hero-h1">Agentic AI for Real Threats in the Real World</h1>
+    <p class="hero-sub">LeoTech transforms law enforcement intelligence with AI-powered analysis that delivers actionable insights instantly—turning weeks of manual investigation into seconds of clarity.</p>
     <div class="hero-actions">
-      <a href="#" class="btn-red">Primary action</a>
-      <a href="#" class="btn-outline-white">Secondary action</a>
+      <a href="#" class="btn-red">Schedule a demo</a>
+      <a href="#" class="btn-outline-white">Read success stories</a>
     </div>
   </div>
 </section>
 
 <section class="section-white pad-xl">
   <div class="inner">
-    <h2 class="sec-h2">Example card section</h2>
-    <p class="sec-sub" style="margin-top:16px;max-width:720px;">Uses <code>cards-grid</code> block classes — all styled via <code>css/style.css</code>.</p>
+    <h2 class="sec-h2">Why Law Enforcement Agencies Choose LeoTech</h2>
     <div class="grid-3" style="margin-top:40px;">
       <div class="card-grey">
-        <div class="card-title">Card one</div>
-        <div class="card-desc">Short description.</div>
+        <div class="card-title">Instant Intelligence</div>
+        <div class="card-desc">AI-powered analysis delivers results in seconds instead of the weeks required by manual investigation. Search 13,000 results? Our AI narrows it to the 4-5 that actually matter.</div>
       </div>
       <div class="card-grey">
-        <div class="card-title">Card two</div>
-        <div class="card-desc">Short description.</div>
+        <div class="card-title">Proven ROI</div>
+        <div class="card-desc">Agencies save millions in operational costs while building capacity. Oklahoma alone identified $64M in annual savings potential—without adding headcount.</div>
       </div>
       <div class="card-grey">
-        <div class="card-title">Card three</div>
-        <div class="card-desc">Short description.</div>
+        <div class="card-title">Mission Critical Results</div>
+        <div class="card-desc">From preventing suicides to capturing escapees to disrupting criminal networks, LeoTech delivers intelligence that saves lives and protects communities.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-grey pad-xl">
+  <div class="inner">
+    <h2 class="sec-h2">From Manual Investigation to AI-Powered Intelligence</h2>
+    <div class="grid-2" style="margin-top:40px;gap:32px;align-items:start;">
+      <div class="card-grey" style="padding:32px;">
+        <div class="card-title">Without Leotech</div>
+        <ul style="margin-top:16px;font-size:14px;color:var(--text-mid);line-height:1.8;padding-left:20px;">
+          <li>Weeks to gather intelligence officers need now</li>
+          <li>13,000 search results to manually review</li>
+          <li>Multiple databases requiring separate logins</li>
+          <li>Keyword dependency that misses critical context</li>
+          <li>Expert-level training required</li>
+        </ul>
+      </div>
+      <div class="card" style="padding:32px;border:2px solid var(--red-border);">
+        <div class="card-title">With Leotech</div>
+        <ul style="margin-top:16px;font-size:14px;color:var(--text-mid);line-height:1.8;padding-left:20px;">
+          <li>Seconds to access actionable intelligence</li>
+          <li>4-5 most relevant results automatically surfaced</li>
+          <li>Single pane of glass accessing all data sources</li>
+          <li>Natural language search that understands context</li>
+          <li>Intuitive interface anyone can use immediately</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-dark pad-xl">
+  <div class="inner">
+    <h2 class="sec-h2-white">Trusted by Agencies Nationwide</h2>
+    <div class="hero-proof" style="margin-top:40px;border-top:none;padding-top:0;">
+      <div>
+        <div class="hero-stat-num">$64M+</div>
+        <div class="hero-stat-label">Annual savings potential identified for Oklahoma Department of Corrections</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">Seconds</div>
+        <div class="hero-stat-label">Time to deliver intelligence that previously required weeks of manual work</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">13,000 → 5</div>
+        <div class="hero-stat-label">Search results automatically narrowed from thousands to the handful that matter</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">24/7</div>
+        <div class="hero-stat-label">Continuous monitoring with AI agents working on investigators' behalf</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-white pad-xl">
+  <div class="inner">
+    <div style="margin-bottom:40px;">
+      <h2 class="sec-h2">Real Impact, Real Results</h2>
+      <p class="sec-sub" style="margin-top:16px;max-width:720px;">Success stories leads — scrollable cards.</p>
+    </div>
+    <div class="grid-3" style="margin-top:40px;">
+      <div class="card-grey">
+        <div class="img-placeholder" data-label="Success story" style="margin-bottom:20px;"></div>
+        <div class="card-title">Death Row Transfer</div>
+        <div class="card-desc">When federal authorities needed a death-row inmate transferred by Monday morning, LeoTech provided critical intelligence in seconds—ensuring safe transport on an impossible timeline.</div>
+      </div>
+      <div class="card-grey">
+        <div class="img-placeholder" data-label="Success story" style="margin-bottom:20px;"></div>
+        <div class="card-title">Suicide Prevention</div>
+        <div class="card-desc">Early intervention through AI-powered monitoring helped prevent suicide attempts, saving lives and avoiding costly lawsuits.</div>
+      </div>
+      <div class="card-grey">
+        <div class="img-placeholder" data-label="Success story" style="margin-bottom:20px;"></div>
+        <div class="card-title">Multi-Agency Intelligence</div>
+        <div class="card-desc">During the New Orleans terrorist investigation, LeoTech's platform helped identify suspects and provide search warrant intelligence.</div>
       </div>
     </div>
   </div>
@@ -59,29 +149,63 @@
 <div class="footer-cta">
   <div class="footer-cta-inner">
     <div>
-      <div class="footer-cta-title">Example CTA band</div>
-      <div class="footer-cta-sub">From blocks/cta-band.html</div>
+      <div class="footer-cta-title">See LeoTech in Action</div>
+      <div class="footer-cta-sub">The best way to understand LeoTech's capabilities is to see them yourself. Our team will customize a demo based on your agency's specific challenges.</div>
     </div>
-    <a href="#" class="btn-white">Call to action</a>
+    <a href="#" class="btn-white">Request Demo</a>
   </div>
 </div>
 
 <footer class="footer">
   <div class="footer-inner">
     <div>
-      <div class="footer-logo" role="img" aria-label="Generic logo"></div>
-      <div class="footer-tagline">Footer tagline — sync columns via make sync when site grows.</div>
+      <div class="footer-logo" role="img" aria-label="LeoTech"></div>
+      <div class="footer-tagline">Law enforcement intelligence — wireframe preview.</div>
+    </div>
+    <div>
+      <div class="footer-col-title">Product</div>
+      <a href="verusai.html" class="footer-link">VerusAI</a>
+      <a href="solutions/index.html" class="footer-link">Solutions</a>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <a href="about/company.html" class="footer-link">About</a>
+      <a href="#" class="footer-link">Partnerships</a>
+      <a href="#" class="footer-link">Careers</a>
+    </div>
+    <div>
+      <div class="footer-col-title">Resources</div>
+      <a href="#" class="footer-link">News &amp; Resources</a>
+      <a href="#" class="footer-link">Request Demo</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-bottom-text">© Wireframe preview</div>
+    <div class="footer-bottom-text">© LeoTech — Wireframe preview</div>
   </div>
 </footer>
 
 <script>
 (function(){
   var backdrop = document.getElementById('mega-backdrop');
-  if (backdrop) backdrop.addEventListener('click', function(){});
+  var panels = document.querySelectorAll('.mega-panel');
+  var buttons = document.querySelectorAll('[data-mega]');
+  function closeAll(){
+    if (backdrop) backdrop.classList.remove('open');
+    panels.forEach(function(p){ p.classList.remove('open'); });
+    buttons.forEach(function(b){ b.classList.remove('active'); });
+  }
+  buttons.forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var id = btn.getAttribute('data-mega');
+      var panel = document.getElementById(id);
+      var open = panel && panel.classList.contains('open');
+      closeAll();
+      if(!open && panel){ panel.classList.add('open'); btn.classList.add('active'); if (backdrop) backdrop.classList.add('open'); }
+    });
+  });
+  if (backdrop) backdrop.addEventListener('click', closeAll);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeAll(); });
 })();
 </script>
 </body>

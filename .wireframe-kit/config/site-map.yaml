@@ -1,11 +1,13 @@
-# Map copy doc page table titles (row 0) → HTML path at repo root
+# Phase 2 interim site map — copy doc tables → HTML paths
 
 pages:
-  - title: Homepage
+  - title: Home Page
     path: index.html
-
-# Example inner page:
-#  - title: About
-#    path: about.html
+  - title: Verus AI
+    path: verusai.html
+  - title: Solutions
+    path: solutions/index.html
+  - title: About /Company
+    path: about/company.html
 
 nav_tables: []

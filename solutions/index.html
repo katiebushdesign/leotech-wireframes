@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solutions — LeoTech Wireframe</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="../index.html" class="nav-logo" aria-label="LeoTech"></a>
+    <div class="nav-links">
+      <a href="../verusai.html" class="nav-btn">VerusAI</a>
+      <a href="../solutions/index.html" class="nav-btn">Solutions</a>
+      <a href="#" class="nav-btn">News &amp; Resources</a>
+      <div class="nav-item">
+        <button type="button" class="nav-btn" data-mega="mega-about">About <span class="chevron">▾</span></button>
+      </div>
+      <a href="#" class="nav-btn">Partnerships</a>
+    </div>
+    <div class="nav-right">
+      <a href="#" class="nav-cta">Request Demo</a>
+    </div>
+  </div>
+</nav>
+<div class="mega-backdrop" id="mega-backdrop"></div>
+
+<div class="mega-panel" id="mega-about">
+  <div class="mega-eyebrow">About</div>
+  <div class="mega-grid-3">
+    <div class="mega-col">
+      <a href="../about/company.html" class="mega-item"><span class="mega-item-title">Company</span><span class="mega-item-desc">Mission, beliefs, and bringing tomorrow's AI to law enforcement</span></a>
+      <a href="#" class="mega-item"><span class="mega-item-title">Careers</span><span class="mega-item-desc">Join the team — page TBD</span></a>
+    </div>
+  </div>
+</div>
+
+<div class="breadcrumb">
+  <div class="breadcrumb-inner"><a href="../index.html" class="bc-item">Home</a><span class="bc-sep">›</span><span class="bc-active">Solutions</span></div>
+</div>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <h1 class="page-hero-h1">Solutions for Every Mission-Critical Challenge</h1>
+    <p class="page-hero-sub">From crisis prevention to criminal investigation, VerusAI delivers the AI-powered intelligence agencies need to protect communities and save lives.</p>
+  </div>
+</section>
+
+<section class="section-white pad-xl">
+  <div class="inner">
+    <div class="grid-3" style="gap:24px;">
+      <div class="card-grey">
+        <div class="card-title">Contraband Investigations</div>
+        <div class="card-desc">Track and stop cell phones, drugs, and weapons flowing into facilities.</div>
+      </div>
+      <div class="card-grey">
+        <div class="card-title">Suicide Prevention</div>
+        <div class="card-desc">Early intervention through AI-powered conversation monitoring.</div>
+      </div>
+      <div class="card-grey">
+        <div class="card-title">Criminal Network Disruption</div>
+        <div class="card-desc">Stop command &amp; control operations run from inside facilities.</div>
+      </div>
+      <div class="card-grey">
+        <div class="card-title">Gang Activity Prevention</div>
+        <div class="card-desc">Monitor communications, identify threats before they escalate.</div>
+      </div>
+      <div class="card-grey">
+        <div class="card-title">Operational Efficiency</div>
+        <div class="card-desc">Build capacity without headcount—millions in potential savings.</div>
+      </div>
+      <div class="card-grey">
+        <div class="card-title">Cross-Agency Intelligence</div>
+        <div class="card-desc">Support FBI, DEA, and multi-jurisdictional investigations.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="footer-cta">
+  <div class="footer-cta-inner">
+    <div>
+      <div class="footer-cta-title">See LeoTech in Action</div>
+      <div class="footer-cta-sub">Schedule a customized demo for your agency.</div>
+    </div>
+    <a href="#" class="btn-white">Request Demo</a>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo" role="img" aria-label="LeoTech"></div>
+      <div class="footer-tagline">Law enforcement intelligence — wireframe preview.</div>
+    </div>
+    <div>
+      <div class="footer-col-title">Product</div>
+      <a href="../verusai.html" class="footer-link">VerusAI</a>
+      <a href="../solutions/index.html" class="footer-link">Solutions</a>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <a href="../about/company.html" class="footer-link">About</a>
+      <a href="#" class="footer-link">Partnerships</a>
+      <a href="#" class="footer-link">Careers</a>
+    </div>
+    <div>
+      <div class="footer-col-title">Resources</div>
+      <a href="#" class="footer-link">News &amp; Resources</a>
+      <a href="#" class="footer-link">Request Demo</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-text">© LeoTech — Wireframe preview</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var backdrop = document.getElementById('mega-backdrop');
+  var panels = document.querySelectorAll('.mega-panel');
+  var buttons = document.querySelectorAll('[data-mega]');
+  function closeAll(){
+    if (backdrop) backdrop.classList.remove('open');
+    panels.forEach(function(p){ p.classList.remove('open'); });
+    buttons.forEach(function(b){ b.classList.remove('active'); });
+  }
+  buttons.forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var id = btn.getAttribute('data-mega');
+      var panel = document.getElementById(id);
+      var open = panel && panel.classList.contains('open');
+      closeAll();
+      if(!open && panel){ panel.classList.add('open'); btn.classList.add('active'); if (backdrop) backdrop.classList.add('open'); }
+    });
+  });
+  if (backdrop) backdrop.addEventListener('click', closeAll);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeAll(); });
+})();
+</script>
+</body>
+</html>

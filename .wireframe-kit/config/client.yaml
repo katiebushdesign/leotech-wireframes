@@ -1,12 +1,12 @@
-# Client-specific wireframe config (edit per project)
+client_name: LeoTech
+project_name: LeoTech website wireframes
 
-client_name: Example Client
-project_name: Website wireframes
+github_org: katiebushdesign
+github_repo: leotech-wireframes
+preview_base_url: https://katiebushdesign.github.io/leotech-wireframes/
 
-copy_doc_url: https://docs.google.com/document/d/YOUR_DOC_ID/edit
+copy_doc_url: https://docs.google.com/document/d/1sTTwQXWcxXUdeXufxzzN_xZTBsKwinXvfDIxmYyhH68/edit
 
 copy_docx_path: .wireframe-kit/content/source/copy.docx
-
-preview_base_url: ""
 
 marker_project_id: ""
