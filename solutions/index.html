@@ -11,7 +11,7 @@
 <nav class="navbar">
   <div class="navbar-inner">
     <a href="../index.html" class="nav-logo" aria-label="LeoTech"></a>
-    <div class="nav-links">
+    <div class="nav-links nav-links--desktop">
       <a href="../verusai.html" class="nav-btn">VerusAI</a>
       <a href="../solutions/index.html" class="nav-btn">Solutions</a>
       <a href="#" class="nav-btn">News &amp; Resources</a>
@@ -21,10 +21,27 @@
       <a href="#" class="nav-btn">Partnerships</a>
     </div>
     <div class="nav-right">
-      <a href="#" class="nav-cta">Request Demo</a>
+      <a href="#" class="nav-cta nav-cta--desktop">Request Demo</a>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-mobile" aria-label="Open menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
     </div>
   </div>
 </nav>
+<div class="nav-mobile" id="nav-mobile">
+  <div class="nav-mobile-inner">
+    <a href="../verusai.html" class="nav-mobile-link">VerusAI</a>
+    <a href="../solutions/index.html" class="nav-mobile-link">Solutions</a>
+    <a href="#" class="nav-mobile-link">News &amp; Resources</a>
+    <span class="nav-mobile-label">About</span>
+    <a href="../about/company.html" class="nav-mobile-sublink">Company</a>
+    <a href="#" class="nav-mobile-sublink">Careers</a>
+    <a href="#" class="nav-mobile-link">Partnerships</a>
+    <a href="#" class="nav-mobile-cta">Request Demo</a>
+  </div>
+</div>
 <div class="mega-backdrop" id="mega-backdrop"></div>
 
 <div class="mega-panel" id="mega-about">
@@ -117,29 +134,6 @@
   </div>
 </footer>
 
-<script>
-(function(){
-  var backdrop = document.getElementById('mega-backdrop');
-  var panels = document.querySelectorAll('.mega-panel');
-  var buttons = document.querySelectorAll('[data-mega]');
-  function closeAll(){
-    if (backdrop) backdrop.classList.remove('open');
-    panels.forEach(function(p){ p.classList.remove('open'); });
-    buttons.forEach(function(b){ b.classList.remove('active'); });
-  }
-  buttons.forEach(function(btn){
-    btn.addEventListener('click', function(e){
-      e.stopPropagation();
-      var id = btn.getAttribute('data-mega');
-      var panel = document.getElementById(id);
-      var open = panel && panel.classList.contains('open');
-      closeAll();
-      if(!open && panel){ panel.classList.add('open'); btn.classList.add('active'); if (backdrop) backdrop.classList.add('open'); }
-    });
-  });
-  if (backdrop) backdrop.addEventListener('click', closeAll);
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeAll(); });
-})();
-</script>
+<script src="../js/nav.js"></script>
 </body>
 </html>
